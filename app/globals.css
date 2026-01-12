@@ -1,26 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Midnight */
+  --midnight-50: #f7f9fa;
+  --midnight-100: #dbdee0;
+  --midnight-200: #c0c3c7;
+  --midnight-300: #a6aaae;
+  --midnight-400: #8c9196;
+  --midnight-500: #73797e;
+  --midnight-600: #5b6168;
+  --midnight-700: #454b52;
+  --midnight-800: #2f363c;
+  --midnight-900: #1b2228;
+  --midnight-950: #090f15;
+
+  /* Arctic */
+  --arctic-50: #faf8f5;
+  --arctic-100: #d3d1ce;
+  --arctic-200: #c6c4c1;
+  --arctic-300: #acaaa8;
+  --arctic-400: #93928f;
+  --arctic-500: #7b7a78;
+  --arctic-600: #646361;
+  --arctic-700: #4e4d4c;
+  --arctic-800: #383837;
+  --arctic-900: #242423;
+  --arctic-950: #121111;
+
+  /* Slopes */
+  --slopes-50: #f5f9fc;
+  --slopes-100: #dbdfe1;
+  --slopes-200: #c1c5c8;
+  --slopes-300: #b3b7ba;
+  --slopes-400: #8f9395;
+  --slopes-500: #787b7d;
+  --slopes-600: #616465;
+  --slopes-700: #4b4d4f;
+  --slopes-800: #373839;
+  --slopes-900: #232425;
+  --slopes-950: #111212;
+
+  /* Apres Ski */
+  --apres-ski-50: #f8f8fa;
+  --apres-ski-100: #dddee0;
+  --apres-ski-200: #c3c4c8;
+  --apres-ski-300: #aaaab0;
+  --apres-ski-400: #919298;
+  --apres-ski-500: #797a81;
+  --apres-ski-600: #6c6d74;
+  --apres-ski-700: #4c4d52;
+  --apres-ski-800: #37383c;
+  --apres-ski-900: #232427;
+  --apres-ski-950: #111113;
+
+  /* Mountainside */
+  --mountainside-50: #f7f9fb;
+  --mountainside-100: #dbdee1;
+  --mountainside-200: #c1c5c9;
+  --mountainside-300: #a6abb1;
+  --mountainside-400: #8d9399;
+  --mountainside-500: #747b82;
+  --mountainside-600: #5c646c;
+  --mountainside-700: #464e56;
+  --mountainside-800: #313941;
+  --mountainside-900: #262e36;
+  --mountainside-950: #0b1219;
+
+  /* Default */
+  --background: var(--arctic-50);
+  --foreground: var(--midnight-900);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Fonts */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans:
+    "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+
+  /* Colors  */
+  --color-midnight-50: var(--midnight-50);
+  --color-midnight-100: var(--midnight-100);
+  --color-midnight-200: var(--midnight-200);
+  --color-midnight-300: var(--midnight-300);
+  --color-midnight-400: var(--midnight-400);
+  --color-midnight-500: var(--midnight-500);
+  --color-midnight-600: var(--midnight-600);
+  --color-midnight-700: var(--midnight-700);
+  --color-midnight-800: var(--midnight-800);
+  --color-midnight-900: var(--midnight-900);
+  --color-midnight-950: var(--midnight-950);
+
+  --color-arctic-50: var(--arctic-50);
+  --color-arctic-100: var(--arctic-100);
+  --color-arctic-200: var(--arctic-200);
+  --color-arctic-300: var(--arctic-300);
+  --color-arctic-400: var(--arctic-400);
+  --color-arctic-500: var(--arctic-500);
+  --color-arctic-600: var(--arctic-600);
+  --color-arctic-700: var(--arctic-700);
+  --color-arctic-800: var(--arctic-800);
+  --color-arctic-900: var(--arctic-900);
+  --color-arctic-950: var(--arctic-950);
+
+  --color-slopes-50: var(--slopes-50);
+  --color-slopes-100: var(--slopes-100);
+  --color-slopes-200: var(--slopes-200);
+  --color-slopes-300: var(--slopes-300);
+  --color-slopes-400: var(--slopes-400);
+  --color-slopes-500: var(--slopes-500);
+  --color-slopes-600: var(--slopes-600);
+  --color-slopes-700: var(--slopes-700);
+  --color-slopes-800: var(--slopes-800);
+  --color-slopes-900: var(--slopes-900);
+  --color-slopes-950: var(--slopes-950);
+
+  --color-apres-ski-50: var(--apres-ski-50);
+  --color-apres-ski-100: var(--apres-ski-100);
+  --color-apres-ski-200: var(--apres-ski-200);
+  --color-apres-ski-300: var(--apres-ski-300);
+  --color-apres-ski-400: var(--apres-ski-400);
+  --color-apres-ski-500: var(--apres-ski-500);
+  --color-apres-ski-600: var(--apres-ski-600);
+  --color-apres-ski-700: var(--apres-ski-700);
+  --color-apres-ski-800: var(--apres-ski-800);
+  --color-apres-ski-900: var(--apres-ski-900);
+  --color-apres-ski-950: var(--apres-ski-950);
+
+  --color-mountainside-50: var(--mountainside-50);
+  --color-mountainside-100: var(--mountainside-100);
+  --color-mountainside-200: var(--mountainside-200);
+  --color-mountainside-300: var(--mountainside-300);
+  --color-mountainside-400: var(--mountainside-400);
+  --color-mountainside-500: var(--mountainside-500);
+  --color-mountainside-600: var(--mountainside-600);
+  --color-mountainside-700: var(--mountainside-700);
+  --color-mountainside-800: var(--mountainside-800);
+  --color-mountainside-900: var(--mountainside-900);
+  --color-mountainside-950: var(--mountainside-950);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
 }
