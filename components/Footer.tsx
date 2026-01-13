@@ -1,7 +1,97 @@
+import { FOOTER_CONTENT } from "@/constants";
+import Image from "next/image";
+import Link from "next/link";
+
+import { Linkedin, Mail, Facebook, Instagram } from "lucide-react";
+
 export default function Footer() {
+  const SocialIcons = {
+    linkedin: Linkedin,
+    mail: Mail,
+    facebook: Facebook,
+    instagram: Instagram,
+  };
+
   return (
-    <footer>
-      <div>Footer</div>
+    <footer className="bg-[#090f15] text-white pt-24 pb-12 px-6 border-t border-white/5">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-24">
+          {/* Left Column: Logo & Desc */}
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
+            <div className="mb-8">
+              <Image
+                src="/logo.png"
+                alt="Ashil & Associates"
+                width={200}
+                height={80}
+                className="h-auto w-auto max-w-[200px] object-contain brightness-0 invert"
+              />
+            </div>
+            <p className="text-sm text-gray-400 leading-relaxed font-sans max-w-md mb-10">
+              {FOOTER_CONTENT.description}
+            </p>
+            <div className="flex gap-4">
+              {Object.keys(SocialIcons).map((key) => {
+                const Icon = SocialIcons[key as keyof typeof SocialIcons];
+                return (
+                  <a
+                    key={key}
+                    href="#"
+                    aria-label={`Visit our ${key} page`}
+                    className="w-10 h-10 bg-[#151b21] flex items-center justify-center rounded-sm hover:bg-[#1e252c] transition-colors duration-300 group"
+                  >
+                    <Icon
+                      className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors duration-300"
+                      strokeWidth={1.5}
+                    />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Right Columns: Links */}
+          <div className="lg:col-span-7 flex flex-col sm:flex-row gap-12 sm:gap-24 justify-center lg:justify-end items-center lg:items-start text-center lg:text-left">
+            {FOOTER_CONTENT.columns.map((col) => (
+              <div key={col.title}>
+                <h4 className="text-xs font-bold tracking-[0.15em] uppercase text-white mb-8 font-sans">
+                  {col.title}
+                </h4>
+                <ul className="space-y-4">
+                  {col.links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-gray-400 hover:text-white transition-colors duration-300 font-sans block"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-gray-500 font-sans">
+            {FOOTER_CONTENT.copyright}
+          </p>
+          <div className="flex gap-8">
+            {FOOTER_CONTENT.bottomLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-xs text-gray-500 hover:text-white transition-colors duration-300 font-sans"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
     </footer>
   );
 }
