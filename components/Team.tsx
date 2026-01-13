@@ -1,6 +1,7 @@
 import { TEAM_CONTENT } from "@/constants";
 
 import { Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
 
 function SocialIcon({ name }: { name: string }) {
   if (name === "linkedin") {
@@ -30,8 +31,14 @@ export default function Team() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {TEAM_CONTENT.members.map((member) => (
             <div key={member.name} className="group">
-              {/* Image Placeholder */}
-              <div className="w-full aspect-[4/5] bg-[var(--color-midnight-800)] mb-6 transition-colors duration-500 hover:bg-[var(--color-midnight-700)]"></div>
+              <div className="relative w-full aspect-[4/5] bg-[var(--color-midnight-800)] mb-6 overflow-hidden">
+                <Image
+                  src={(member as any).image}
+                  alt={member.name}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
 
               <h4 className="font-serif text-xl text-white mb-2 font-medium">
                 {member.name}

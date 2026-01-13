@@ -8,9 +8,12 @@ export default function Banner() {
           {BANNER_CONTENT.title}
         </h2>
 
-        <button className="bg-white text-black px-8 py-4 text-xs font-bold tracking-[0.15em] uppercase hover:bg-gray-200 transition-colors duration-300 font-sans mb-20 cursor-pointer">
+        <a
+          href="#contact"
+          className="inline-block bg-white text-black px-8 py-4 text-xs font-bold tracking-[0.15em] uppercase hover:bg-gray-200 transition-colors duration-300 font-sans mb-20 cursor-pointer"
+        >
           {BANNER_CONTENT.buttonText}
-        </button>
+        </a>
 
         <div className="border-t border-white/10 w-full mb-12"></div>
 

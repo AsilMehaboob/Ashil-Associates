@@ -41,6 +41,7 @@ export const CONTACT_INFO = {
       type: "Head Office",
       lines: ["123 Business Tower, Floor 15", "Mumbai, Maharashtra 400001"],
       icon: "map-pin",
+      url: "https://www.google.com/maps/place/Mumbai,+Maharashtra",
     },
     {
       type: "Phone",
@@ -99,21 +100,12 @@ export const FOOTER_CONTENT = {
     "Trusted Chartered Accountants delivering comprehensive financial solutions across India and the GCC region.",
   columns: [
     {
-      title: "COMPANY",
+      title: "Pages",
       links: [
-        { label: "About Us", href: "/#about" },
-        { label: "Our Team", href: "/#team" },
-        { label: "Industries", href: "/#industries" },
+        { label: "Home", href: "/#home" },
+        { label: "About", href: "/#about" },
+        { label: "Services", href: "/#services" },
         { label: "Contact", href: "/#contact" },
-      ],
-    },
-    {
-      title: "LOCATIONS",
-      links: [
-        { label: "Mumbai, India", href: "#" },
-        { label: "Dubai, UAE", href: "#" },
-        { label: "Riyadh, KSA", href: "#" },
-        { label: "Doha, Qatar", href: "#" },
       ],
     },
   ],
@@ -133,6 +125,8 @@ export const TEAM_CONTENT = {
       role: "Founder & Managing Partner",
       description: "15+ years in audit and taxation across India and GCC",
       socials: { linkedin: "#", mail: "mailto:ashil@example.com" },
+      image:
+        "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "CA Priya Mehta",
@@ -140,6 +134,8 @@ export const TEAM_CONTENT = {
       description:
         "Expert in international taxation and cross-border transactions.",
       socials: { linkedin: "#", mail: "mailto:priya@example.com" },
+      image:
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
       name: "CA Rajesh Kumar",
@@ -147,6 +143,8 @@ export const TEAM_CONTENT = {
       description:
         "Specializes in statutory audits and forensic investigations.",
       socials: { linkedin: "#", mail: "mailto:rajesh@example.com" },
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
   ],
 };
