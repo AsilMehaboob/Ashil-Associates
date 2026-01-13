@@ -12,7 +12,7 @@ const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: st
 
 export default function Home() {
   return (
-    <section id="home" className="relative h-screen w-full flex items-center pt-28">
+    <section id="home" className="relative h-screen w-full flex flex-col">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -27,14 +27,10 @@ export default function Home() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-6 w-full h-full flex flex-col justify-end md:justify-between pb-12 md:pb-24">
-         {/* Spacer for desktop layout alignment if needed, or simply justify-end works for both but we might want content higher up on mobile? 
-             Actually original design had it at the bottom. Let's keep it at bottom. 
-         */}
+      <div className="relative z-10 max-w-[1440px] mx-auto px-6 w-full flex-grow flex flex-col md:flex-row justify-end md:justify-between items-start md:items-end pb-12 md:pb-24 pt-32 md:pt-28">
          
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between w-full gap-8 md:gap-0"> 
-            <div className="max-w-3xl w-full">
-            <h1 className="text-[#D3D1CE] text-6xl md:text-[125px] font-medium leading-tight md:leading-[130px] tracking-[-0.77px] mb-6 md:mb-8 italic font-serif">
+        <div className="max-w-3xl w-full">
+            <h1 className="text-[#D3D1CE] text-5xl sm:text-6xl md:text-[125px] font-medium leading-tight md:leading-[130px] tracking-[-0.77px] mb-6 md:mb-8 italic font-serif">
                 Finance <br />
                 <span className="italic block">Made Simple.</span>
             </h1>
@@ -43,9 +39,9 @@ export default function Home() {
                 services with a focus on precision and professional integrity across
                 India and the GCC.
             </p>
-            </div>
+        </div>
 
-            <div className="flex flex-col md:flex-row gap-4 w-full md:w-auto">
+        <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto mt-8 md:mt-0">
             <a
                 href="#contact"
                 onClick={(e) => handleSmoothScroll(e, 'contact')}
@@ -60,7 +56,6 @@ export default function Home() {
             >
                 Learn More
             </a>
-            </div>
         </div>
       </div>
     </section>
