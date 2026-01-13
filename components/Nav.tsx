@@ -17,7 +17,7 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
       <div className="mx-auto px-20 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="relative w-52 h-20">
+        <Link href="/" className="relative w-72 h-20">
           <Image
             src="/logo.png"
             alt="Ashil & Associates"

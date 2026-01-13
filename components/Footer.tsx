@@ -22,10 +22,10 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="Ashil & Associates"
-                width={200}
-                height={80}
-                className="h-auto w-auto max-w-[200px] object-contain brightness-0 invert"
-              />
+                width={150}
+                height={72}
+                className="h-auto max-w-[150px] object-contain brightness-0 invert"
+              />  
             </div>
             <p className="text-sm text-gray-400 leading-relaxed font-sans max-w-md mb-10">
               {FOOTER_CONTENT.description}
