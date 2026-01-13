@@ -147,7 +147,7 @@ export default function Services() {
                     : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-6 pb-8 pl-24">
+                <div className="px-6 pb-8 pl-6 md:pl-24">
                   <p className="text-gray-600 text-lg mb-6 leading-relaxed">
                     {service.description}
                   </p>

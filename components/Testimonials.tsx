@@ -64,7 +64,7 @@ export default function Testimonials() {
           <p className="text-sm tracking-[0.2em] text-gray-600 mb-4">
             TESTIMONIALS
           </p>
-          <h2 className="text-5xl md:text-6xl font-serif">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif">
             Hear From Those Who Achieved
             <br />
             <em className="font-serif">Financial Freedom</em>
@@ -76,7 +76,7 @@ export default function Testimonials() {
           {/* Navigation Arrows */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 bg-white shadow-md hidden md:flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300"
             aria-label="Previous testimonial"
           >
             <ArrowLeft size={24} />
@@ -84,22 +84,22 @@ export default function Testimonials() {
 
           <button
             onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 bg-white shadow-md hidden md:flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300"
             aria-label="Next testimonial"
           >
             <ArrowRight size={24} />
           </button>
 
           {/* Card */}
-          <div className="bg-white p-16 shadow-lg min-h-[500px] flex flex-col">
+          <div className="bg-white p-6 md:p-16 shadow-lg min-h-auto md:min-h-[500px] flex flex-col">
             {/* Quote Icon */}
-            <div className="mb-8">
+            <div className="mb-6 md:mb-8">
               <svg
                 width="40"
                 height="32"
                 viewBox="0 0 40 32"
                 fill="none"
-                className="text-gray-300"
+                className="text-gray-300 w-8 h-6 md:w-10 md:h-8"
               >
                 <path
                   d="M0 32V16C0 7.168 5.504 0 17.6 0v6.4C11.264 6.4 8.8 10.24 8.8 16h8.8v16H0zm22.4 0V16C22.4 7.168 27.904 0 40 0v6.4C33.664 6.4 31.2 10.24 31.2 16H40v16H22.4z"
@@ -109,16 +109,16 @@ export default function Testimonials() {
             </div>
 
             {/* Quote Text */}
-            <blockquote className="mb-12">
-              <p className="text-xl md:text-2xl font-serif font-medium italic leading-relaxed text-gray-800">
+            <blockquote className="mb-8 md:mb-12">
+              <p className="text-lg md:text-2xl font-serif font-medium italic leading-relaxed text-gray-800">
                 "{currentTestimonial.quote}"
               </p>
             </blockquote>
 
             {/* Client Info */}
-            <div className="flex items-center gap-4">
+            <div className="mt-auto flex items-center gap-4">
               {/* Avatar */}
-              <div className="w-12 h-12 bg-black text-white flex items-center justify-center font-semibold text-lg">
+              <div className="w-12 h-12 bg-black text-white flex items-center justify-center font-semibold text-lg shrink-0">
                 {currentTestimonial.initial}
               </div>
 
