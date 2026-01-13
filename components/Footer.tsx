@@ -18,14 +18,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-24">
           {/* Left Column: Logo & Desc */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <div className="mb-8">
+            <div className="mb-6">
               <Image
                 src="/logo.png"
                 alt="Ashil & Associates"
-                width={150}
-                height={72}
-                className="h-auto max-w-[150px] object-contain brightness-0 invert"
-              />  
+                width={160}
+                height={100}
+                className="h-auto max-w-[240px] object-contain brightness-0 invert"
+              />
             </div>
             <p className="text-sm text-gray-400 leading-relaxed font-sans max-w-md mb-10">
               {FOOTER_CONTENT.description}
@@ -51,7 +51,7 @@ export default function Footer() {
           </div>
 
           {/* Right Columns: Links */}
-          <div className="lg:col-span-7 flex flex-col sm:flex-row gap-12 sm:gap-24 justify-center lg:justify-end items-center lg:items-start text-center lg:text-left">
+          <div className="lg:col-span-7 flex flex-col sm:flex-row gap-12 sm:gap-24 justify-center lg:justify-end items-center lg:items-start text-center lg:text-left lg:mr-4">
             {FOOTER_CONTENT.columns.map((col) => (
               <div key={col.title}>
                 <h4 className="text-xs font-bold tracking-[0.15em] uppercase text-white mb-8 font-sans">

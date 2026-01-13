@@ -62,9 +62,7 @@ export default function Contact() {
                     </h4>
                     {detail.icon === "map-pin" ? (
                       <a
-                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                          detail.lines.join(" ")
-                        )}`}
+                        href={(detail as any).url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block group/link font-medium"
