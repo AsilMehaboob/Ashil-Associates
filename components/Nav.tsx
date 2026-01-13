@@ -15,9 +15,9 @@ const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: st
 export default function Nav() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
-      <div className="mx-auto px-20 h-28 flex items-center justify-between">
+      <div className="mx-auto px-20 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="relative w-64 h-30">
+        <Link href="/" className="relative w-52 h-20">
           <Image
             src="/logo.png"
             alt="Ashil & Associates"
@@ -63,7 +63,7 @@ export default function Nav() {
           <a
             href="#contact"
             onClick={(e) => handleSmoothScroll(e, 'contact')}
-            className="flex items-center gap-2 bg-[#1b2228] text-white px-8 py-5 text-sm font-bold tracking-[0.15em] hover:bg-black transition-colors font-sans cursor-pointer"
+            className="flex items-center gap-2 bg-[#1b2228] text-white px-8 py-3 text-sm font-bold tracking-[0.15em] hover:bg-black transition-colors font-sans cursor-pointer"
           >
             GET IN TOUCH
             <Plus className="w-5 h-5" strokeWidth={2} />
