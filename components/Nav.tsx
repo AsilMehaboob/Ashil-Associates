@@ -4,6 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Plus } from "lucide-react";
 
+const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  e.preventDefault();
+  const element = document.getElementById(targetId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 export default function Nav() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
@@ -22,39 +30,44 @@ export default function Nav() {
         {/* Navigation Links and Button */}
         <div className="flex items-center gap-10">
           <div className="hidden md:flex items-center gap-8">
-            <Link
-              href="/"
-              className="text-sm font-bold tracking-[0.2em] text-[#1b2228] hover:text-gray-600 transition-colors font-sans"
+            <a
+              href="#home"
+              onClick={(e) => handleSmoothScroll(e, 'home')}
+              className="text-sm font-bold tracking-[0.2em] text-[#1b2228] hover:text-gray-600 transition-colors font-sans cursor-pointer"
             >
               HOME
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm font-bold tracking-[0.2em] text-[#5b6168] hover:text-[#1b2228] transition-colors font-sans"
+            </a>
+            <a
+              href="#about"
+              onClick={(e) => handleSmoothScroll(e, 'about')}
+              className="text-sm font-bold tracking-[0.2em] text-[#5b6168] hover:text-[#1b2228] transition-colors font-sans cursor-pointer"
             >
               ABOUT
-            </Link>
-            <Link
-              href="/services"
-              className="text-sm font-bold tracking-[0.2em] text-[#5b6168] hover:text-[#1b2228] transition-colors font-sans"
+            </a>
+            <a
+              href="#services"
+              onClick={(e) => handleSmoothScroll(e, 'services')}
+              className="text-sm font-bold tracking-[0.2em] text-[#5b6168] hover:text-[#1b2228] transition-colors font-sans cursor-pointer"
             >
               SERVICES
-            </Link>
-            <Link
-              href="/contact"
-              className="text-sm font-bold tracking-[0.2em] text-[#5b6168] hover:text-[#1b2228] transition-colors font-sans"
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => handleSmoothScroll(e, 'contact')}
+              className="text-sm font-bold tracking-[0.2em] text-[#5b6168] hover:text-[#1b2228] transition-colors font-sans cursor-pointer"
             >
               CONTACT
-            </Link>
+            </a>
           </div>
 
-          <Link
-            href="/contact"
-            className="flex items-center gap-2 bg-[#1b2228] text-white px-8 py-5 text-sm font-bold tracking-[0.15em] hover:bg-black transition-colors font-sans"
+          <a
+            href="#contact"
+            onClick={(e) => handleSmoothScroll(e, 'contact')}
+            className="flex items-center gap-2 bg-[#1b2228] text-white px-8 py-5 text-sm font-bold tracking-[0.15em] hover:bg-black transition-colors font-sans cursor-pointer"
           >
             GET IN TOUCH
             <Plus className="w-5 h-5" strokeWidth={2} />
-          </Link>
+          </a>
         </div>
       </div>
     </nav>

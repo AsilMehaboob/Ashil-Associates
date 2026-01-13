@@ -1,11 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+
+const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+  e.preventDefault();
+  const element = document.getElementById(targetId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 export default function Home() {
   return (
-    <section className="relative h-screen w-full flex items-center pt-28">
+    <section id="home" className="relative h-screen w-full flex items-center pt-28">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -34,18 +41,20 @@ export default function Home() {
         </div>
 
         <div className="flex flex-row gap-4">
-          <Link
-            href="/contact"
-            className="bg-white text-[#1b2228] px-10 py-5 text-sm font-bold tracking-[0.15em] hover:bg-gray-100 transition-colors uppercase font-sans text-center whitespace-nowrap"
+          <a
+            href="#contact"
+            onClick={(e) => handleSmoothScroll(e, 'contact')}
+            className="bg-white text-[#1b2228] px-10 py-5 text-sm font-bold tracking-[0.15em] hover:bg-gray-100 transition-colors uppercase font-sans text-center whitespace-nowrap cursor-pointer"
           >
             Schedule Consultation
-          </Link>
-          <Link
-            href="/services"
-            className="border border-white/40 text-white px-10 py-5 text-sm font-bold tracking-[0.15em] hover:bg-white/10 transition-colors uppercase font-sans text-center whitespace-nowrap"
+          </a>
+          <a
+            href="#services"
+            onClick={(e) => handleSmoothScroll(e, 'services')}
+            className="border border-white/40 text-white px-10 py-5 text-sm font-bold tracking-[0.15em] hover:bg-white/10 transition-colors uppercase font-sans text-center whitespace-nowrap cursor-pointer"
           >
             Learn More
-          </Link>
+          </a>
         </div>
       </div>
     </section>

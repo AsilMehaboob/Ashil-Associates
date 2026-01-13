@@ -71,6 +71,11 @@
   --foreground: var(--midnight-900);
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem; /* Offset for fixed navbar */
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

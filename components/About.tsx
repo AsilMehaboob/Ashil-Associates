@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className="bg-white py-24">
+    <section id="about" className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Image placeholder */}
