@@ -1,6 +1,7 @@
 "use server";
 
 export async function submitContactForm(
+  prevState: { success: boolean; message: string },
   formData: FormData
 ) {
   const strapiUrl = process.env.STRAPI_BASE_URL;
