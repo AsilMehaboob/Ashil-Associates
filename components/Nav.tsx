@@ -19,7 +19,7 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="relative w-72 h-20">
           <Image
-            src="/logo.png"
+            src="/logo2.png"
             alt="Ashil & Associates"
             fill
             className="object-contain"
