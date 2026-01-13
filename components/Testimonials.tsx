@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const testimonials = [
   {
@@ -44,8 +45,6 @@ export default function Testimonials() {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  const currentTestimonial = testimonials[currentIndex];
-
   // Auto-rotate testimonials every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
@@ -55,9 +54,8 @@ export default function Testimonials() {
     return () => clearInterval(interval); // Cleanup on unmount
   }, []);
 
-
   return (
-    <section className="bg-[#F5F5F0] py-24 px-6">
+    <section className="bg-[#F5F5F0] py-24 px-6 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -71,71 +69,107 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        {/* Testimonial Card */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 w-12 h-12 bg-white shadow-md hidden md:flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300"
-            aria-label="Previous testimonial"
-          >
-            <ArrowLeft size={24} />
-          </button>
+        {/* Testimonial Stack */}
+        <div className="relative max-w-4xl mx-auto h-[500px] md:h-[450px]">
+          {/* Navigation Arrows - Moved outside appropriately or z-indexed above */}
+          <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-4 md:-translate-x-24 z-50 hidden md:block">
+            <button
+              onClick={prevTestimonial}
+              className="w-12 h-12 bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300 rounded-full"
+              aria-label="Previous testimonial"
+            >
+              <ArrowLeft size={24} />
+            </button>
+          </div>
 
-          <button
-            onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 w-12 h-12 bg-white shadow-md hidden md:flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300"
-            aria-label="Next testimonial"
-          >
-            <ArrowRight size={24} />
-          </button>
+          <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-4 md:translate-x-24 z-50 hidden md:block">
+             <button
+              onClick={nextTestimonial}
+              className="w-12 h-12 bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300 rounded-full"
+              aria-label="Next testimonial"
+            >
+              <ArrowRight size={24} />
+            </button>
+          </div>
 
-          {/* Card */}
-          <div className="bg-white p-6 md:p-16 shadow-lg min-h-auto md:min-h-[500px] flex flex-col">
-            {/* Quote Icon */}
-            <div className="mb-6 md:mb-8">
-              <svg
-                width="40"
-                height="32"
-                viewBox="0 0 40 32"
-                fill="none"
-                className="text-gray-300 w-8 h-6 md:w-10 md:h-8"
-              >
-                <path
-                  d="M0 32V16C0 7.168 5.504 0 17.6 0v6.4C11.264 6.4 8.8 10.24 8.8 16h8.8v16H0zm22.4 0V16C22.4 7.168 27.904 0 40 0v6.4C33.664 6.4 31.2 10.24 31.2 16H40v16H22.4z"
-                  fill="currentColor"
-                />
-              </svg>
-            </div>
+          {/* Cards */}
+          <div className="relative w-full h-full"> 
+             <AnimatePresence>
+              {testimonials.map((testimonial, index) => {
+                // Calculate position relative to key index
+                const offset = (index - currentIndex + testimonials.length) % testimonials.length;
+                
+                // Allow only top 3 cards to be visible/interactable for performance visually
+                const isActive = offset === 0;
+                
+                return (
+                  <motion.div
+                    key={testimonial.id}
+                    className="absolute top-0 left-0 w-full h-full bg-white p-8 md:p-16 shadow-xl rounded-2xl flex flex-col border border-gray-100"
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{
+                      opacity: 1, // Always visible if in the map, control via z-index
+                      scale: 1 - offset * 0.05,
+                      y: offset * 20, // Stack vertical offset
+                      zIndex: testimonials.length - offset, // 0 offset = highest z-index
+                      filter: isActive ? "blur(0px)" : "blur(1px)", // Subtle blur for depth
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: "easeInOut"
+                    }}
+                    style={{
+                      transformOrigin: "top center",
+                    }}
+                  >
+                    {/* Quote Icon */}
+                    <div className="mb-6 md:mb-8">
+                      <svg
+                        width="40"
+                        height="32"
+                        viewBox="0 0 40 32"
+                        fill="none"
+                        className="text-gray-300 w-8 h-6 md:w-10 md:h-8"
+                      >
+                        <path
+                          d="M0 32V16C0 7.168 5.504 0 17.6 0v6.4C11.264 6.4 8.8 10.24 8.8 16h8.8v16H0zm22.4 0V16C22.4 7.168 27.904 0 40 0v6.4C33.664 6.4 31.2 10.24 31.2 16H40v16H22.4z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </div>
 
-            {/* Quote Text */}
-            <blockquote className="mb-8 md:mb-12">
-              <p className="text-lg md:text-2xl font-serif font-medium italic leading-relaxed text-gray-800">
-                "{currentTestimonial.quote}"
-              </p>
-            </blockquote>
+                    {/* Quote Text */}
+                    <blockquote className="mb-8 md:mb-12 flex-grow">
+                      <p className="text-lg md:text-2xl font-serif font-medium italic leading-relaxed text-gray-800">
+                        "{testimonial.quote}"
+                      </p>
+                    </blockquote>
 
-            {/* Client Info */}
-            <div className="mt-auto flex items-center gap-4">
-              {/* Avatar */}
-              <div className="w-12 h-12 bg-black text-white flex items-center justify-center font-semibold text-lg shrink-0">
-                {currentTestimonial.initial}
-              </div>
+                    {/* Client Info */}
+                    <div className="mt-auto flex items-center gap-4">
+                      {/* Avatar */}
+                      <div className="w-12 h-12 bg-black text-white flex items-center justify-center font-semibold text-lg shrink-0 rounded-full">
+                        {testimonial.initial}
+                      </div>
 
-              {/* Name and Title */}
-              <div>
-                <p className="font-semibold text-gray-900">
-                  {currentTestimonial.name}
-                </p>
-                <p className="text-sm text-gray-600">
-                  {currentTestimonial.title} · {currentTestimonial.location}
-                </p>
-              </div>
-            </div>
+                      {/* Name and Title */}
+                      <div>
+                        <p className="font-semibold text-gray-900">
+                          {testimonial.name}
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          {testimonial.title} · {testimonial.location}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="absolute -bottom-16 left-0 right-0 flex justify-center gap-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
