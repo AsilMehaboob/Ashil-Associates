@@ -1,8 +1,11 @@
+"use client";
+
 import { FOOTER_CONTENT } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Linkedin, Mail, Facebook, Instagram } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   const SocialIcons = {
@@ -14,7 +17,13 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#090f15] text-white pt-24 pb-12 px-6 border-t border-white/5">
-      <div className="max-w-7xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-8 mb-24">
           {/* Left Column: Logo & Desc */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
@@ -91,7 +100,7 @@ export default function Footer() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

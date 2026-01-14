@@ -1,4 +1,7 @@
+"use client";
+
 import { INDUSTRIES_AND_CLIENTS } from "@/constants";
+import { motion } from "framer-motion";
 
 export default function IndustriesAndClients() {
   return (
@@ -6,7 +9,13 @@ export default function IndustriesAndClients() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
           {/* Left Content */}
-          <div className="lg:col-span-4 xl:col-span-5 flex flex-col justify-center h-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 xl:col-span-5 flex flex-col justify-center h-full"
+          >
             <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-gray-500 mb-6 font-sans">
               {INDUSTRIES_AND_CLIENTS.sectionHeader}
             </h3>
@@ -16,14 +25,18 @@ export default function IndustriesAndClients() {
             <p className="text-sm leading-relaxed text-gray-500 font-sans max-w-md">
               {INDUSTRIES_AND_CLIENTS.description}
             </p>
-          </div>
+          </motion.div>
 
           {/* Right Grid */}
           <div className="lg:col-span-8 xl:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {INDUSTRIES_AND_CLIENTS.categories.map((category, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-[#F5F5F5] p-8 flex flex-col justify-center h-full transition-colors hover:bg-gray-100"
                 >
                   <h4 className="font-serif text-lg font-medium text-black mb-2">
@@ -32,7 +45,7 @@ export default function IndustriesAndClients() {
                   <p className="text-xs text-gray-500 font-sans">
                     {category.description}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

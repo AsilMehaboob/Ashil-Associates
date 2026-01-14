@@ -3,6 +3,7 @@
 import { FAQ_CONTENT } from "@/constants";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -16,20 +17,33 @@ export default function Faq() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
           {/* Left Header */}
-          <div className="lg:col-span-4 flex flex-col justify-start">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-4 flex flex-col justify-start"
+          >
             <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-gray-500 mb-6 font-sans">
               {FAQ_CONTENT.sectionHeader}
             </h3>
             <h2 className="text-5xl sm:text-6xl font-serif text-black leading-none">
               {FAQ_CONTENT.title}
             </h2>
-          </div>
+          </motion.div>
 
           {/* Right Accordion */}
           <div className="lg:col-span-8">
             <div className="border-t border-gray-200">
               {FAQ_CONTENT.items.map((item, index) => (
-                <div key={index} className="border-b border-gray-200">
+                <motion.div
+                  key={index}
+                  className="border-b border-gray-200"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
                   <button
                     onClick={() => toggleAccordion(index)}
                     className="w-full py-8 flex justify-between items-center text-left focus:outline-hidden group"
@@ -56,7 +70,7 @@ export default function Faq() {
                       {item.answer}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

@@ -4,6 +4,7 @@ import { useActionState } from "react";
 import { CONTACT_INFO } from "@/constants";
 import { MapPin, Phone, Mail, Loader2, Check } from "lucide-react";
 import { submitContactForm } from "@/app/actions";
+import { motion } from "framer-motion";
 
 const IconMap: Record<string, React.ElementType> = {
   "map-pin": MapPin,
@@ -34,7 +35,13 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left Content: Info */}
-          <div className="flex flex-col">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col"
+          >
             <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-midnight-500)] mb-8 font-sans">
               {CONTACT_INFO.sectionHeader}
             </h3>
@@ -107,10 +114,16 @@ export default function Contact() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Content: Form */}
-          <div className="pt-8 lg:pt-0">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="pt-8 lg:pt-0"
+          >
             {state.success ? (
               <div className="h-full flex flex-col items-center justify-center p-10 bg-[var(--color-arctic-50)] rounded-sm text-center animate-in fade-in zoom-in slide-in-from-bottom-4 duration-500">
                 <div className="w-16 h-16 bg-[var(--color-midnight-50)] rounded-full flex items-center justify-center mb-6 ring-1 ring-[var(--color-midnight-100)]">
@@ -177,7 +190,7 @@ export default function Contact() {
                 </div>
               </form>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

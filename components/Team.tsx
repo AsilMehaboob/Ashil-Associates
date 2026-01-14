@@ -1,7 +1,10 @@
+"use client";
+
 import { TEAM_CONTENT } from "@/constants";
 
 import { Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 function SocialIcon({ name }: { name: string }) {
   if (name === "linkedin") {
@@ -18,19 +21,32 @@ export default function Team() {
     <section className="bg-[var(--color-midnight-950)] py-20 px-6 sm:px-8 lg:px-12 text-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
           <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-gray-400 mb-6 font-sans">
             {TEAM_CONTENT.sectionHeader}
           </h3>
           <h2 className="text-4xl sm:text-5xl font-serif text-white leading-[1.15]">
             {TEAM_CONTENT.title}
           </h2>
-        </div>
+        </motion.div>
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {TEAM_CONTENT.members.map((member) => (
-            <div key={member.name} className="group">
+          {TEAM_CONTENT.members.map((member, index) => (
+            <motion.div
+              key={member.name}
+              className="group"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
               <div className="relative w-full aspect-[4/5] bg-[var(--color-midnight-800)] mb-6 overflow-hidden">
                 <Image
                   src={(member as any).image}
@@ -66,7 +82,7 @@ export default function Team() {
                   <SocialIcon name="mail" />
                 </a>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
