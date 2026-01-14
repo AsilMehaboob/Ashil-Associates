@@ -4,19 +4,19 @@ import Footer from "@/components/Footer";
 
 export default function PrivacyPolicy() {
   return (
-    <div className="bg-[#090f15] min-h-screen text-white">
+    <div className="min-h-screen text-[#1b2228]">
       <Nav />
       <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-serif font-bold mb-8">
           Privacy Policy
         </h1>
-        <p className="text-gray-400 mb-8 font-sans">
+        <p className="text-gray-600 mb-8 font-sans">
           Last updated: {new Date().toLocaleDateString()}
         </p>
 
-        <div className="space-y-8 font-sans text-gray-300 leading-relaxed">
+        <div className="space-y-8 font-sans text-gray-700 leading-relaxed">
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">1. Introduction</h2>
+            <h2 className="text-2xl font-bold text-[#1b2228] mb-4">1. Introduction</h2>
             <p>
               Welcome to Ashil & Associates ("we," "our," or "us"). We represent
               Chartered Accountants delivering comprehensive financial solutions
@@ -29,7 +29,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-[#1b2228] mb-4">
               2. Data We Collect
             </h2>
             <p className="mb-4">
@@ -59,7 +59,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-[#1b2228] mb-4">
               3. How We Use Your Data
             </h2>
             <p>
@@ -82,7 +82,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-[#1b2228] mb-4">
               4. Data Security
             </h2>
             <p>
@@ -96,7 +96,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-[#1b2228] mb-4">
               5. Contact Us
             </h2>
             <p>
@@ -104,7 +104,7 @@ export default function PrivacyPolicy() {
               practices, please contact us at:{" "}
               <a
                 href="mailto:info@ashilassociates.com"
-                className="text-white underline hover:text-gray-200"
+                className="text-[#1b2228] underline hover:text-gray-600"
               >
                 info@ashilassociates.com
               </a>

@@ -4,19 +4,19 @@ import Footer from "@/components/Footer";
 
 export default function TermsOfService() {
   return (
-    <div className="bg-[#090f15] min-h-screen text-white">
+    <div className="min-h-screen text-[#1b2228]">
       <Nav />
       <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-5xl font-serif font-bold mb-8">
           Terms of Service
         </h1>
-        <p className="text-gray-400 mb-8 font-sans">
+        <p className="text-gray-600 mb-8 font-sans">
           Last updated: {new Date().toLocaleDateString()}
         </p>
 
-        <div className="space-y-8 font-sans text-gray-300 leading-relaxed">
+        <div className="space-y-8 font-sans text-gray-700 leading-relaxed">
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-[#1b2228] mb-4">
               1. Acceptance of Terms
             </h2>
             <p>
@@ -31,7 +31,7 @@ export default function TermsOfService() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-[#1b2228] mb-4">
               2. Intellectual Property
             </h2>
             <p>
@@ -43,7 +43,7 @@ export default function TermsOfService() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-[#1b2228] mb-4">
               3. Use License
             </h2>
             <p className="mb-4">
@@ -75,7 +75,7 @@ export default function TermsOfService() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-[#1b2228] mb-4">
               4. Disclaimer
             </h2>
             <p>
@@ -90,7 +90,7 @@ export default function TermsOfService() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-white mb-4">
+            <h2 className="text-2xl font-bold text-[#1b2228] mb-4">
               5. Governing Law
             </h2>
             <p>
