@@ -28,7 +28,7 @@ export default function Nav() {
     <nav className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
       <div className="mx-auto px-6 md:px-20 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="relative w-48 md:w-72 h-16 md:h-20" onClick={closeMobileMenu}>
+        <Link href="/" className="relative w-36 md:w-52 h-12 md:h-16" onClick={closeMobileMenu}>
           <Image
             src="/logo-transparent.png"
             alt="Ashil & Associates"

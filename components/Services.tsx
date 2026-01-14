@@ -170,9 +170,16 @@ export default function Services() {
 
         {/* View All Button */}
         <div className="text-center mt-12">
-          <button className="px-8 py-3 border border-gray-300 text-gray-700 text-sm tracking-wider uppercase hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300">
+          <a 
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="inline-block px-8 py-3 border border-gray-300 text-gray-700 text-sm tracking-wider uppercase hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300"
+          >
             View All Services
-          </button>
+          </a>
         </div>
       </div>
     </section>
