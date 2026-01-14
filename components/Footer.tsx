@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left">
             <div className="mb-6">
               <Image
-                src="/logo.png"
+                src="/logo-white.png"
                 alt="Ashil & Associates"
                 width={160}
                 height={100}

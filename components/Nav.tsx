@@ -30,7 +30,7 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="relative w-48 md:w-72 h-16 md:h-20" onClick={closeMobileMenu}>
           <Image
-            src="/logo2.png"
+            src="/logo-transparent.png"
             alt="Ashil & Associates"
             fill
             className="object-contain"
