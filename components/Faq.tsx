@@ -3,7 +3,7 @@
 import { FAQ_CONTENT } from "@/constants";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -43,12 +43,19 @@ export default function Faq() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
+                  onMouseEnter={() => setOpenIndex(index)}
                 >
                   <button
                     onClick={() => toggleAccordion(index)}
                     className="w-full py-8 flex justify-between items-center text-left focus:outline-hidden group"
                   >
-                    <span className="text-lg font-medium text-gray-900 font-sans group-hover:text-black transition-colors">
+                    <span
+                      className={`text-lg font-medium font-sans transition-colors duration-300 ${
+                        openIndex === index
+                          ? "text-black"
+                          : "text-gray-900 group-hover:text-black"
+                      }`}
+                    >
                       {item.question}
                     </span>
                     <span
@@ -59,17 +66,21 @@ export default function Faq() {
                       <ChevronDown className="w-5 h-5 text-gray-500" />
                     </span>
                   </button>
-                  <div
-                    className={`overflow-hidden transition-[max-height,opacity] duration-300 ease-in-out ${
-                      openIndex === index
-                        ? "max-h-96 opacity-100 mb-8"
-                        : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <p className="text-sm cursor-text text-gray-500 font-sans leading-relaxed max-w-2xl">
-                      {item.answer}
-                    </p>
-                  </div>
+                  <AnimatePresence initial={false}>
+                    {openIndex === index && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-sm cursor-text text-gray-500 font-sans leading-relaxed max-w-2xl mb-8">
+                          {item.answer}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </motion.div>
               ))}
             </div>
