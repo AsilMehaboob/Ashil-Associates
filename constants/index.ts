@@ -111,8 +111,8 @@ export const FOOTER_CONTENT = {
   ],
   copyright: "© 2026 Ashil & Associates. All rights reserved.",
   bottomLinks: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms of Service", href: "/terms-of-service" },
   ],
 };
 
