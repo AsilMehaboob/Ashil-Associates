@@ -21,34 +21,33 @@ export const HOME_CONTENT = {
 };
 
 export const INDUSTRIES_AND_CLIENTS = {
-  sectionHeader: "INDUSTRIES & CLIENTS",
-  title: "Diverse Expertise, Unified Excellence",
-  description:
-    "Serving clients across industries with specialized knowledge and proven experience. From ambitious startups to established enterprises, we deliver tailored solutions that drive sustainable growth.",
+  sectionHeader: "EXPERTISE ACROSS INDUSTRIES",
+  title: "Excellence without borders.",
+  description: "Ashil & Associates works with a diverse range of clients, from growing enterprises to established corporations. Our industry-focused expertise and regulatory insight enable us to deliver practical, compliant, and scalable financial solutions aligned with each client's business environment.",
   categories: [
     {
       title: "SMEs",
-      description: "Tailored solutions for growing businesses",
+      description: "Practical advisory and compliance support for growing businesses.",
     },
     {
       title: "Corporates",
-      description: "Enterprise-grade financial services",
+      description: "Structured, enterprise-grade audit and advisory services.",
     },
     {
       title: "Startups",
-      description: "Scalable support for innovation",
+      description: "Scalable financial guidance from inception to expansion.",
     },
     {
       title: "GCC Businesses",
-      description: "Regional expertise across the Gulf",
+      description: "Specialized regional expertise across the GCC countries.",
     },
     {
       title: "Manufacturing",
-      description: "Industry-specific knowledge",
+      description: "Industry-focused audit, accounting, and compliance support.",
     },
     {
-      title: "International",
-      description: "Cross-border expertise",
+      title: "International Clients",
+      description: "Cross-border taxation and regulatory advisory services.",
     },
   ],
 };
@@ -108,12 +107,12 @@ export const CONTACT_INFO = {
 };
 
 export const BANNER_CONTENT = {
-  title: "Easily manage your finances and reach your goals.",
+  title: "Expert advisory. Reliable compliance. Long-term value.",
   buttonText: "GET STARTED TODAY",
   stats: [
-    { number: "250+", label: "PROJECTS COMPLETED" },
-    { number: "50+", label: "TEAM MEMBERS" },
-    { number: "2K+", label: "HAPPY CLIENTS" },
+    { number: "25+", label: "Years of Professional Experience" },
+    { number: "500+", label: "Clients Served" },
+    { number: "7", label: "Countries Served" },
   ],
 };
 
@@ -139,119 +138,135 @@ export const FOOTER_CONTENT = {
 };
 
 export const TEAM_CONTENT = {
-  sectionHeader: "LEADERSHIP",
-  title: "Meet our team of experts",
+  sectionHeader: "TEAM",
+  title: "Leadership",
   members: [
     {
-      name: "CA Ashil Sharma",
-      role: "Founder & Managing Partner",
-      description: "15+ years in audit and taxation across India and GCC",
+      name: "CA. Ashil M.A., FCA",
+      role: "Senior Partner",
+      description: "Founder and senior advisor with over 25 years of experience in audit, taxation, and regulatory advisory across India and the GCC.",
       socials: { linkedin: "#", mail: "mailto:ashil@example.com" },
       image:
         "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "CA Priya Mehta",
-      role: "Partner - Tax & Compliance",
-      description:
-        "Expert in international taxation and cross-border transactions.",
-      socials: { linkedin: "#", mail: "mailto:priya@example.com" },
+      name: "CA. Ceeja Udayanan, FCA",
+      role: "Partner",
+      description: "Specialist in financial reporting, auditing, and end-to-end accounting operations across diverse industries.",
+      socials: { linkedin: "#", mail: "mailto:ceeja@example.com" },
       image:
         "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "CA Rajesh Kumar",
-      role: "Partner - Audit & Assurance",
-      description:
-        "Specializes in statutory audits and forensic investigations.",
-      socials: { linkedin: "#", mail: "mailto:rajesh@example.com" },
+      name: "CA. Saandra Thomas, FCA",
+      role: "Partner",
+      description: "Expert in internal audits, process frameworks, and forensic investigations with extensive public and private sector experience.",
+      socials: { linkedin: "#", mail: "mailto:saandra@example.com" },
       image:
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "CS. Manju Sebastian, ACS",
+      role: "Senior Associate – Company Secretary",
+      description: "Corporate governance and regulatory compliance professional with strong expertise in company law and board advisory.",
+      socials: { linkedin: "#", mail: "mailto:manju@example.com" },
+      image:
+        "https://images.unsplash.com/photo-1594737675228-89f75ba07f23?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "CA. Vidhya Muraly, ACA",
+      role: "Senior Audit Manager",
+      description: "Experienced audit professional specializing in statutory audits, taxation, and regulatory representations.",
+      socials: { linkedin: "#", mail: "mailto:vidhya@example.com" },
+      image:
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Binsa N.H., CMA Finalist",
+      role: "Team Head – International Outsource Division",
+      description: "Leads international finance outsourcing and Virtual CFO engagements with a focus on MIS, compliance, and strategic finance.",
+      socials: { linkedin: "#", mail: "mailto:binsa@example.com" },
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },
   ],
 };
 
 export const FAQ_CONTENT = {
-  sectionHeader: "COMMON QUESTIONS",
-  title: "FAQ.",
+  sectionHeader: "FAQ",
+  title: "Got a question? We're here to help.",
   items: [
     {
       question: "What services does Ashil & Associates offer?",
-      answer:
-        "We offer comprehensive financial services including Audit & Assurance, Tax & Regulatory Compliance, GCC VAT & Corporate Tax, Virtual CFO Advisory, International Taxation, and Forensic Audits.",
+      answer: "Ashil & Associates provides a comprehensive range of professional services including audit and assurance, tax and regulatory compliance, GCC VAT and corporate tax advisory, accounting and bookkeeping, finance outsourcing, international taxation, and Virtual CFO services.",
     },
     {
       question: "Which regions do you serve?",
-      answer:
-        "We primarily serve clients across India and the GCC region (UAE, Saudi Arabia, Qatar, Bahrain, Oman, and Kuwait), providing localized expertise with global standards.",
+      answer: "We serve clients across India and the GCC region, including the UAE, Saudi Arabia, Qatar, Oman, Kuwait, and Bahrain. We also support international clients with cross-border taxation and regulatory advisory.",
     },
     {
       question: "How can I schedule a consultation?",
-      answer:
-        "You can schedule a consultation by using the contact form on our website, emailing us directly, or calling our office numbers. We'll arrange a meeting to discuss your specific needs.",
+      answer: "You can schedule a consultation by filling out the contact form on our website, emailing us directly, or calling our office. Our team will coordinate a meeting to understand your requirements and propose the appropriate solution.",
     },
     {
       question: "What industries do you specialize in?",
-      answer:
-        "We specialize in a wide range of industries including Manufacturing, Retail, Healthcare, Real Estate, Technology, and Financial Services, among others.",
+      answer: "We work with a diverse range of industries including SMEs, corporates, startups, manufacturing, service sectors, and international businesses. Our industry-focused approach ensures practical, compliant, and scalable financial solutions.",
     },
   ],
 };
 
+export const COMMITMENT_CONTENT = {
+  sectionHeader: "OUR COMMITMENT",
+  title: "Professional integrity. Delivered with precision.",
+  description: {
+    paragraph1:
+      "At Ashil & Associates, every engagement is guided by strong ethical standards, regulatory discipline, and a commitment to excellence. We believe long-term client relationships are built on trust, transparency, and consistently reliable outcomes.",
+    paragraph2:
+      "Our approach combines deep technical expertise, industry knowledge, and technology-driven processes to deliver solutions that are accurate, compliant, and aligned with our clients' strategic objectives.",
+  },
+};
+
 export const TESTIMONIALS_CONTENT = {
-  sectionHeader: "TESTIMONIALS",
-  title: "Hear From Those Who Achieved Financial Freedom",
+  sectionHeader: "OUR COMMITMENT",
+  title: "Professional integrity. Delivered with precision.",
   items: [
     {
-      quote:
-        "Ashil & Associates transformed our financial operations. Their expertise in GCC taxation and compliance has been invaluable for our cross-border business. The team's dedication to timely delivery and accuracy is exceptional.",
-      name: "Rajesh Kumar",
-      title: "CEO, TechNext Solutions",
-      location: "Dubai, UAE",
-      initial: "R",
+      quote: "At Ashil & Associates, every engagement is guided by strong ethical standards, regulatory discipline, and a commitment to excellence. We believe long-term client relationships are built on trust, transparency, and consistently reliable outcomes.",
+      name: "Our Approach",
+      title: "Excellence in Every Engagement",
+      location: "Built on Trust",
+      initial: "O",
     },
     {
-      quote:
-        "Working with Ashil & Associates has been a game-changer for our business. Their strategic financial planning and tax optimization strategies have significantly improved our bottom line. Highly recommended!",
-      name: "Sarah Al-Mansoori",
-      title: "CFO, Global Ventures",
-      location: "Abu Dhabi, UAE",
-      initial: "S",
-    },
-    {
-      quote:
-        "The professionalism and expertise of Ashil & Associates is unmatched. They helped us navigate complex regulatory requirements with ease. Their personalized approach makes all the difference.",
-      name: "Mohammed Hassan",
-      title: "Managing Director, Emirates Trading Co.",
-      location: "Sharjah, UAE",
-      initial: "M",
+      quote: "Our approach combines deep technical expertise, industry knowledge, and technology-driven processes to deliver solutions that are accurate, compliant, and aligned with our clients' strategic objectives.",
+      name: "Our Promise",
+      title: "Quality & Precision",
+      location: "Client-Centric Focus",
+      initial: "P",
     },
   ],
 };
 
 export const WHY_CHOOSE_US_CONTENT = {
   sectionHeader: "WHY CHOOSE US",
-  title: "Amazing accounting statistics show the power of numbers.",
+  title: "What sets us apart is not just expertise, it's trust.",
   buttonText: "GET STARTED",
   features: [
     {
-      title: "What sets us apart? Strong commitment to compliance.",
-      description:
-        "We ensure your business adheres to all regulatory requirements with meticulous attention to detail and proactive compliance management.",
+      title: "Commitment to Compliance",
+      description: "Compliance isn't a task. It's our foundation. We ensure your business stays aligned with evolving regulatory requirements through meticulous audits, proactive compliance management, and strict adherence to statutory standards.",
       image:
         "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
     },
     {
-      title: "We value your trust with absolute confidentiality.",
-      description:
-        "Your financial information is protected with stringent security protocols and professional ethics that prioritize your privacy.",
+      title: "Absolute Confidentiality",
+      description: "Your data. Protected with integrity. We handle sensitive financial and business information with the highest levels of confidentiality, ethical responsibility, and robust security protocols.",
       image:
         "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
     },
     {
-      title: "Embrace automation with technology-driven processes.",
-      description:
-        "Leveraging cutting-edge tools and automation to deliver accurate, efficient, and insightful financial solutions.",
+      title: "Technology-Driven Processes",
+      description: "Smarter systems. Faster insights. By leveraging modern accounting tools, automation, and ERP-driven workflows, we deliver accurate reporting, operational efficiency, and actionable financial insights.",
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     },
@@ -271,15 +286,15 @@ export const KEY_SERVICES_CONTENT = [
 
 export const ABOUT_CONTENT = {
   sectionHeader: "ABOUT THE FIRM",
-  title: "With a global reach, our firm has been in business since 1998.",
+  title: "Over 25 years of expertise in audit, taxation, and advisory.",
   description: [
-    "Ashil & Associates is a distinguished Chartered Accountancy firm committed to delivering exceptional professional services across India and the GCC region. With a foundation built on integrity, expertise, and client-centric values, we serve as trusted advisors to businesses navigating complex financial landscapes.",
-    "Our multidisciplinary team brings together specialists in taxation, audit, advisory, and technology-driven financial solutions. We pride ourselves on understanding each client's unique needs and delivering tailored strategies.",
+    "Ashil & Associates is a professionally managed Chartered Accountancy firm offering audit, taxation, accounting, and advisory services to businesses across India and the GCC. Founded in 2010, the firm is backed by over 25 years of leadership experience and a strong commitment to professional integrity and regulatory excellence.",
+    "We support corporates, SMEs, and international businesses with end-to-end solutions including statutory and forensic audits, tax compliance, accounting and bookkeeping, finance outsourcing, and Virtual CFO services. With deep expertise in Indian and GCC regulations, our team delivers accurate, timely, and technology-driven financial solutions tailored to each client's needs.",
   ],
   stats: [
-    { value: "25+", label: "Years Experience" },
+    { value: "25+", label: "Years of Professional Experience" },
     { value: "500+", label: "Clients Served" },
-    { value: "7", label: "Countries" },
+    { value: "7", label: "Countries Served" },
   ],
   image:
     "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
@@ -287,16 +302,15 @@ export const ABOUT_CONTENT = {
 
 export const SERVICES_CONTENT = {
   sectionHeader: "WHAT WE OFFER",
-  title: "Our Services",
+  title: "OUR SERVICES",
   items: [
     {
       title: "Audit & Assurance",
-      description:
-        "Comprehensive audit services ensuring accuracy, compliance, and transparency in financial reporting.",
+      description: "Clarity you can trust. Assurance you can rely on. We deliver independent, high-quality audit services that strengthen financial credibility, ensure regulatory compliance, and build stakeholder confidence.",
       details: [
         "Statutory Audits",
-        "Internal Audits",
         "Tax Audits",
+        "Internal Audits",
         "Concurrent Audits",
         "Stock Audits",
         "Due Diligence",
@@ -304,54 +318,48 @@ export const SERVICES_CONTENT = {
     },
     {
       title: "Tax & Regulatory Compliance",
-      description:
-        "Expert guidance on tax planning, compliance, and regulatory requirements to optimize your tax position.",
+      description: "Smarter tax decisions. Zero compliance stress. We help businesses stay compliant, optimize tax positions, and confidently navigate complex regulatory frameworks in India and overseas.",
       details: [
         "Income Tax Planning & Filing",
         "GST Registration & Returns",
         "TDS Compliance",
-        "Transfer Pricing",
         "International Taxation",
+        "Transfer Pricing",
         "Tax Litigation Support",
       ],
     },
     {
-      title: "GCC/VAT & Corporate Tax",
-      description:
-        "Specialized services for GCC region VAT and Corporate Tax compliance and advisory.",
+      title: "GCC / VAT & Corporate Tax",
+      description: "Local expertise. Global tax confidence. Specialized advisory and compliance services for businesses operating across GCC countries, ensuring seamless VAT and corporate tax compliance.",
       details: [
         "VAT Registration & Compliance",
         "Corporate Tax Advisory",
-        "Tax Impact Assessment",
         "VAT Refund Services",
+        "Tax Impact Assessment",
         "Transfer Pricing Documentation",
         "Tax Health Check",
       ],
     },
     {
       title: "Virtual CFO Advisory",
-      description:
-        "Strategic financial leadership and guidance without the cost of a full-time CFO.",
+      description: "Strategic finance leadership—without a full-time CFO. Our Virtual CFO services provide senior-level financial insight to help businesses improve profitability, manage cash flows, and make informed decisions.",
       details: [
-        "Financial Planning & Analysis",
-        "Budgeting & Forecasting",
-        "Cash Flow Management",
-        "Financial Reporting",
-        "Strategic Business Advisory",
-        "Risk Management",
+        "Financial Planning & Forecasting",
+        "Budgeting & Performance Reviews",
+        "MIS & Management Dashboards",
+        "Cost Optimization Strategies",
+        "Board & Investor Reporting",
       ],
     },
     {
       title: "International Taxation",
-      description:
-        "Navigate complex cross-border tax issues with our international taxation expertise.",
+      description: "Cross-border operations. Handled with confidence. We assist businesses with international structuring, cross-border tax planning, and treaty advisory to ensure global compliance and tax efficiency.",
       details: [
-        "Cross-Border Tax Planning",
-        "DTAA Benefits",
-        "Foreign Tax Credit",
-        "FEMA Compliance",
-        "Expatriate Taxation",
-        "Global Mobility Services",
+        "Cross-border Tax Advisory",
+        "Treaty Benefit Analysis",
+        "Entity & Transaction Structuring",
+        "Regulatory Compliance Support",
+        "Global Tax Planning",
       ],
     },
   ],

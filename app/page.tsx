@@ -4,7 +4,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import KeyServicesMarquee from "@/components/KeyServicesMarquee";
-import Testimonials from "@/components/Testimonials";
+import Commitment from "@/components/Commitment";
 import IndustriesAndClients from "@/components/IndustriesAndClients";
 import Team from "@/components/Team";
 import Faq from "@/components/Faq";
@@ -21,7 +21,7 @@ export default function HomePage() {
       <Services />
       <WhyChooseUs />
       <KeyServicesMarquee />
-      <Testimonials />
+      <Commitment />
       <IndustriesAndClients />
       <Team />
       <Faq />
