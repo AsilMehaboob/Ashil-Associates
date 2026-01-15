@@ -170,7 +170,7 @@ export const TEAM_CONTENT = {
         "Founder and senior advisor with over 25 years of experience in audit, taxation, and regulatory advisory across India and the GCC.",
       socials: { linkedin: "#", mail: "mailto:ashil@example.com" },
       image:
-        "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "/ashil.jpg",
     },
     {
       name: "CA. Ceeja Udayanan, FCA",
@@ -179,7 +179,7 @@ export const TEAM_CONTENT = {
         "Specialist in financial reporting, auditing, and end-to-end accounting operations across diverse industries.",
       socials: { linkedin: "#", mail: "mailto:ceeja@example.com" },
       image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "/ceeja.jpg",
     },
     {
       name: "CA. Saandra Thomas, FCA",
@@ -188,7 +188,7 @@ export const TEAM_CONTENT = {
         "Expert in internal audits, process frameworks, and forensic investigations with extensive public and private sector experience.",
       socials: { linkedin: "#", mail: "mailto:saandra@example.com" },
       image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "/saandra.jpg",
     },
     {
       name: "CS. Manju Sebastian, ACS",
@@ -206,7 +206,7 @@ export const TEAM_CONTENT = {
         "Experienced audit professional specializing in statutory audits, taxation, and regulatory representations.",
       socials: { linkedin: "#", mail: "mailto:vidhya@example.com" },
       image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "/vidhya.jpg",
     },
     {
       name: "Binsa N.H., CMA Finalist",
