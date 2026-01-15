@@ -1,7 +1,5 @@
 "use client";
 
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 
 export default function PrivacyPolicy() {
@@ -13,8 +11,6 @@ export default function PrivacyPolicy() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Nav />
-
       <main className="pt-40 pb-24 px-6 sm:px-8 lg:px-12">
         <article className="max-w-4xl mx-auto">
           {/* Header */}
@@ -185,7 +181,6 @@ export default function PrivacyPolicy() {
           </div>
         </article>
       </main>
-      <Footer />
     </div>
   );
 }

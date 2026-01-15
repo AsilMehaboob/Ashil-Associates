@@ -1,7 +1,5 @@
 "use client";
 
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 
 export default function TermsOfService() {
@@ -13,8 +11,6 @@ export default function TermsOfService() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Nav />
-
       <main className="pt-40 pb-24 px-6 sm:px-8 lg:px-12">
         <article className="max-w-4xl mx-auto">
           {/* Header */}
@@ -160,7 +156,6 @@ export default function TermsOfService() {
           </div>
         </article>
       </main>
-      <Footer />
     </div>
   );
 }
