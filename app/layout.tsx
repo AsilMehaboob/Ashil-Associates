@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Manrope } from "next/font/google";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -18,7 +20,22 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Ashil Associates",
+  title: "Ashil & Associates",
+  description:
+    "Ashil & Associates delivers world-class accounting and advisory services with a focus on precision and professional integrity across India and the GCC.",
+  keywords: [
+    "Chartered Accountants",
+    "Audit",
+    "Taxation",
+    "Advisory",
+    "GCC VAT",
+    "Corporate Tax",
+    "Virtual CFO",
+    "India",
+    "UAE",
+    "Financial Services",
+    "Bookkeeping",
+  ],
 };
 
 export default function RootLayout({
@@ -29,7 +46,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${manrope.variable}`}>
       <body className="antialiased scroll-smooth">
+        <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );
