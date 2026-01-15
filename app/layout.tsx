@@ -18,7 +18,22 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Ashil Associates",
+  title: "Ashil & Associates",
+  description:
+    "Ashil & Associates delivers world-class accounting and advisory services with a focus on precision and professional integrity across India and the GCC.",
+  keywords: [
+    "Chartered Accountants",
+    "Audit",
+    "Taxation",
+    "Advisory",
+    "GCC VAT",
+    "Corporate Tax",
+    "Virtual CFO",
+    "India",
+    "UAE",
+    "Financial Services",
+    "Bookkeeping",
+  ],
 };
 
 export default function RootLayout({
@@ -28,9 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${manrope.variable}`}>
-      <body className="antialiased scroll-smooth">
-        {children}
-      </body>
+      <body className="antialiased scroll-smooth">{children}</body>
     </html>
   );
 }

@@ -20,9 +20,9 @@ export default function HomePage() {
       <About />
       <Services />
       <WhyChooseUs />
+      <IndustriesAndClients />
       <KeyServicesMarquee />
       <Commitment />
-      <IndustriesAndClients />
       <Team />
       <Faq />
       <Banner />
