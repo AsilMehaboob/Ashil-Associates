@@ -1,3 +1,25 @@
+export const NAV_LINKS = [
+  { label: "HOME", href: "#home" },
+  { label: "ABOUT", href: "#about" },
+  { label: "SERVICES", href: "#services" },
+  { label: "CONTACT", href: "#contact" },
+];
+
+export const HOME_CONTENT = {
+  heroImage:
+    "https://images.unsplash.com/photo-1531973576160-7125cd663d86?auto=format&fit=crop&w=1920&q=80",
+  title: {
+    line1: "Finance",
+    line2: "Made Simple.",
+  },
+  description:
+    "Ashil & Associates delivers world-class accounting and advisory services with a focus on precision and professional integrity across India and the GCC.",
+  buttons: {
+    primary: "Schedule Consultation",
+    secondary: "Learn More",
+  },
+};
+
 export const INDUSTRIES_AND_CLIENTS = {
   sectionHeader: "INDUSTRIES & CLIENTS",
   title: "Diverse Expertise, Unified Excellence",

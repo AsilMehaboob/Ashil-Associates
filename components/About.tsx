@@ -6,7 +6,10 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="about" className="bg-white py-24 px-6 sm:px-8 lg:px-12">
+    <section
+      id="about"
+      className="bg-white py-24 px-6 sm:px-8 lg:px-12 scroll-mt-20"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left side - Image */}

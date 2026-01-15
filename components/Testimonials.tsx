@@ -26,11 +26,11 @@ export default function Testimonials() {
   }, [items.length]);
 
   return (
-    <section className="bg-[#F5F5F0] py-20 px-6 sm:px-8 lg:px-12 overflow-hidden">
+    <section className="bg-[#F5F5F0] py-16 px-4 sm:px-8 lg:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -39,13 +39,13 @@ export default function Testimonials() {
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-gray-500 mb-6 font-sans">
             {TESTIMONIALS_CONTENT.sectionHeader}
           </p>
-          <h2 className="text-4xl sm:text-5xl font-serif text-black leading-[1.15] max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl font-serif text-black leading-[1.15] max-w-4xl mx-auto">
             {TESTIMONIALS_CONTENT.title}
           </h2>
         </motion.div>
 
         {/* Testimonial Stack */}
-        <div className="relative max-w-4xl mx-auto h-[450px] md:h-[400px]">
+        <div className="relative max-w-4xl mx-auto h-[500px] sm:h-[450px] md:h-[400px]">
           {/* Navigation Arrows */}
           <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-4 md:-translate-x-24 z-50 hidden md:block">
             <button
@@ -81,7 +81,7 @@ export default function Testimonials() {
                 return (
                   <motion.div
                     key={index}
-                    className="absolute top-0 left-0 w-full h-full bg-white p-8 md:p-12 shadow-xl rounded-sm flex flex-col border border-gray-100"
+                    className="absolute top-0 left-0 w-full h-full bg-white p-6 sm:p-8 md:p-12 shadow-xl rounded-sm flex flex-col border border-gray-100"
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{
                       opacity: isActive || offset <= 2 ? 1 : 0,
@@ -99,13 +99,13 @@ export default function Testimonials() {
                     }}
                   >
                     {/* Quote Icon */}
-                    <div className="mb-6">
+                    <div className="mb-4 sm:mb-6">
                       <svg
                         width="32"
                         height="24"
                         viewBox="0 0 40 32"
                         fill="none"
-                        className="text-gray-300 w-8 h-6"
+                        className="text-gray-300 w-6 h-4 sm:w-8 sm:h-6"
                       >
                         <path
                           d="M0 32V16C0 7.168 5.504 0 17.6 0v6.4C11.264 6.4 8.8 10.24 8.8 16h8.8v16H0zm22.4 0V16C22.4 7.168 27.904 0 40 0v6.4C33.664 6.4 31.2 10.24 31.2 16H40v16H22.4z"
@@ -115,16 +115,16 @@ export default function Testimonials() {
                     </div>
 
                     {/* Quote Text */}
-                    <blockquote className="mb-8 flex-grow">
-                      <p className="text-xl md:text-2xl font-serif font-medium italic leading-relaxed text-gray-800">
+                    <blockquote className="mb-6 sm:mb-8 flex-grow overflow-y-auto custom-scrollbar">
+                      <p className="text-lg sm:text-xl md:text-2xl font-serif font-medium italic leading-relaxed text-gray-800">
                         "{testimonial.quote}"
                       </p>
                     </blockquote>
 
                     {/* Client Info */}
-                    <div className="mt-auto flex items-center gap-4">
+                    <div className="mt-auto flex items-center gap-3 sm:gap-4">
                       {/* Avatar */}
-                      <div className="w-10 h-10 bg-black text-white flex items-center justify-center font-semibold text-sm shrink-0 rounded-full font-sans">
+                      <div className="w-8 h-8 sm:w-10 sm:h-10 bg-black text-white flex items-center justify-center font-semibold text-xs sm:text-sm shrink-0 rounded-full font-sans">
                         {testimonial.initial}
                       </div>
 
@@ -133,7 +133,7 @@ export default function Testimonials() {
                         <p className="font-semibold text-gray-900 text-sm">
                           {testimonial.name}
                         </p>
-                        <p className="text-xs text-gray-500 uppercase tracking-wider mt-0.5">
+                        <p className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mt-0.5">
                           {testimonial.title} · {testimonial.location}
                         </p>
                       </div>

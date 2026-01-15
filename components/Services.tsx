@@ -9,7 +9,10 @@ export default function Services() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
 
   return (
-    <section id="services" className="py-24 px-6 sm:px-8 lg:px-12 bg-[#F5F5F0]">
+    <section
+      id="services"
+      className="py-24 px-6 sm:px-8 lg:px-12 bg-[#F5F5F0] scroll-mt-20"
+    >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

@@ -91,11 +91,20 @@ export default function WhyChooseUs() {
           })}
         </div>
 
-        {/* Mobile Button */}
         <div className="mt-16 md:hidden">
-          <button className="w-full bg-black text-white px-8 py-4 text-xs font-medium tracking-[0.2em] hover:bg-gray-800 transition-colors uppercase">
+          <a
+            href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              const element = document.getElementById("contact");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="block w-full text-center bg-black text-white px-8 py-4 text-xs font-medium tracking-[0.2em] hover:bg-gray-800 transition-colors uppercase"
+          >
             {WHY_CHOOSE_US_CONTENT.buttonText}
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -3,159 +3,183 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Plus, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { NAV_LINKS } from "@/constants";
 
-const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+const handleSmoothScroll = (
+  e: React.MouseEvent<HTMLAnchorElement>,
+  targetId: string
+) => {
   e.preventDefault();
   const element = document.getElementById(targetId);
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
+    element.scrollIntoView({ behavior: "smooth" });
   }
 };
 
 export default function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    if (!isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+    document.body.style.overflow = "unset";
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white z-50 shadow-sm">
-      <div className="mx-auto px-6 md:px-20 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="relative w-36 md:w-52 h-12 md:h-16" onClick={closeMobileMenu}>
-          <Image
-            src="/logo-transparent.png"
-            alt="Ashil & Associates"
-            fill
-            className="object-contain"
-            priority
-          />
-        </Link>
+    <>
+      <motion.nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          isScrolled || isMobileMenuOpen
+            ? "bg-white shadow-sm border-b border-gray-100 py-3"
+            : "bg-transparent py-6 md:py-8"
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-16 flex items-center justify-between">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="relative w-36 md:w-44 lg:w-48 h-10 md:h-12"
+            onClick={closeMobileMenu}
+          >
+            <Image
+              src={
+                isScrolled || isMobileMenuOpen
+                  ? "/logo-transparent.png"
+                  : "/logo-white.png"
+              }
+              alt="Ashil & Associates"
+              fill
+              className="object-contain object-left"
+              priority
+            />
+          </Link>
 
-        {/* Desktop Navigation Links and Button */}
-        <div className="hidden lg:flex items-center gap-10">
-          <div className="flex items-center gap-8">
-            <a
-              href="#home"
-              onClick={(e) => handleSmoothScroll(e, 'home')}
-              className="text-sm font-bold tracking-[0.2em] text-[#1b2228] hover:text-gray-600 transition-colors font-sans cursor-pointer"
-            >
-              HOME
-            </a>
-            <a
-              href="#about"
-              onClick={(e) => handleSmoothScroll(e, 'about')}
-              className="text-sm font-bold tracking-[0.2em] text-[#5b6168] hover:text-[#1b2228] transition-colors font-sans cursor-pointer"
-            >
-              ABOUT
-            </a>
-            <a
-              href="#services"
-              onClick={(e) => handleSmoothScroll(e, 'services')}
-              className="text-sm font-bold tracking-[0.2em] text-[#5b6168] hover:text-[#1b2228] transition-colors font-sans cursor-pointer"
-            >
-              SERVICES
-            </a>
+          <div className="hidden lg:flex items-center gap-12">
+            <div className="flex items-center gap-10">
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) =>
+                    handleSmoothScroll(e, link.href.replace("#", ""))
+                  }
+                  className={`text-xs font-bold tracking-[0.2em] transition-colors font-sans cursor-pointer hover:text-[var(--color-midnight-900)] ${
+                    isScrolled
+                      ? "text-[var(--color-midnight-600)]"
+                      : "text-white/90 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+
             <a
               href="#contact"
-              onClick={(e) => handleSmoothScroll(e, 'contact')}
-              className="text-sm font-bold tracking-[0.2em] text-[#5b6168] hover:text-[#1b2228] transition-colors font-sans cursor-pointer"
+              onClick={(e) => handleSmoothScroll(e, "contact")}
+              className={`flex items-center gap-2 px-6 py-3 text-xs font-bold tracking-[0.2em] transition-all duration-300 border font-sans cursor-pointer uppercase ${
+                isScrolled
+                  ? "bg-[var(--color-midnight-950)] text-white hover:bg-[var(--color-midnight-800)] border-[var(--color-midnight-950)]"
+                  : "bg-white/10 text-white hover:bg-white hover:text-[var(--color-midnight-950)] border-white/20 hover:border-white backdrop-blur-sm"
+              }`}
             >
-              CONTACT
+              GET IN TOUCH
+              <Plus className="w-4 h-4" strokeWidth={2} />
             </a>
           </div>
 
-          <a
-            href="#contact"
-            onClick={(e) => handleSmoothScroll(e, 'contact')}
-            className="flex items-center gap-2 bg-[#1b2228] text-white px-8 py-3 text-sm font-bold tracking-[0.15em] hover:bg-black transition-colors font-sans cursor-pointer"
+          {/* Mobile Menu Button */}
+          <button
+            className="lg:hidden p-2 z-50 focus:outline-none"
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
           >
-            GET IN TOUCH
-            <Plus className="w-5 h-5" strokeWidth={2} />
-          </a>
+            {isMobileMenuOpen ? (
+              <X
+                className="w-8 h-8 text-[var(--color-midnight-900)]"
+                strokeWidth={1.5}
+              />
+            ) : (
+              <Menu
+                className={`w-8 h-8 ${
+                  isScrolled ? "text-[var(--color-midnight-900)]" : "text-white"
+                }`}
+                strokeWidth={1.5}
+              />
+            )}
+          </button>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          className="lg:hidden p-2 text-[#1b2228]"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-        >
-          {isMobileMenuOpen ? (
-            <X className="w-8 h-8" />
-          ) : (
-            <Menu className="w-8 h-8" />
-          )}
-        </button>
-      </div>
+      </motion.nav>
 
       {/* Mobile Menu Overlay */}
-      <div
-        className={`fixed inset-0 bg-white z-40 lg:hidden transition-transform duration-300 ease-in-out ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
-        style={{ top: "80px" }} // Below navbar
-      >
-        <div className="flex flex-col items-center justify-center h-[calc(100vh-80px)] space-y-8 p-6">
-          <a
-            href="#home"
-            onClick={(e) => {
-              handleSmoothScroll(e, 'home');
-              closeMobileMenu();
-            }}
-            className="text-xl font-bold tracking-[0.2em] text-[#1b2228] hover:text-gray-600 transition-colors font-sans"
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "tween", duration: 0.3 }}
+            className="fixed inset-0 bg-white z-40 lg:hidden pt-28 px-6 flex flex-col"
           >
-            HOME
-          </a>
-          <a
-            href="#about"
-            onClick={(e) => {
-              handleSmoothScroll(e, 'about');
-              closeMobileMenu();
-            }}
-            className="text-xl font-bold tracking-[0.2em] text-[#1b2228] hover:text-gray-600 transition-colors font-sans"
-          >
-            ABOUT
-          </a>
-          <a
-            href="#services"
-            onClick={(e) => {
-              handleSmoothScroll(e, 'services');
-              closeMobileMenu();
-            }}
-            className="text-xl font-bold tracking-[0.2em] text-[#1b2228] hover:text-gray-600 transition-colors font-sans"
-          >
-            SERVICES
-          </a>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              handleSmoothScroll(e, 'contact');
-              closeMobileMenu();
-            }}
-            className="text-xl font-bold tracking-[0.2em] text-[#1b2228] hover:text-gray-600 transition-colors font-sans"
-          >
-            CONTACT
-          </a>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              handleSmoothScroll(e, 'contact');
-              closeMobileMenu();
-            }}
-            className="flex items-center gap-2 bg-[#1b2228] text-white px-8 py-3 text-sm font-bold tracking-[0.15em] hover:bg-black transition-colors font-sans"
-          >
-            GET IN TOUCH
-            <Plus className="w-5 h-5" strokeWidth={2} />
-          </a>
-        </div>
-      </div>
-    </nav>
+            <div className="flex flex-col items-center justify-center space-y-8 h-full pb-28">
+              {NAV_LINKS.map((link, index) => (
+                <motion.a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => {
+                    handleSmoothScroll(e, link.href.replace("#", ""));
+                    setTimeout(() => closeMobileMenu(), 50);
+                  }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.1 }}
+                  className="text-2xl font-bold tracking-[0.2em] text-[var(--color-midnight-900)] hover:text-[var(--color-midnight-600)] transition-colors font-sans"
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+
+              <motion.a
+                href="#contact"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                onClick={(e) => {
+                  handleSmoothScroll(e, "contact");
+                  setTimeout(() => closeMobileMenu(), 50);
+                }}
+                className="flex items-center gap-2 bg-[var(--color-midnight-950)] text-white px-8 py-4 text-xs font-bold tracking-[0.2em] hover:bg-[var(--color-midnight-800)] transition-colors font-sans uppercase mt-8"
+              >
+                GET IN TOUCH
+                <Plus className="w-5 h-5" strokeWidth={2} />
+              </motion.a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
