@@ -36,6 +36,11 @@ export const metadata: Metadata = {
     "Financial Services",
     "Bookkeeping",
   ],
+  icons: {
+    icon: "/logo-transparent.png",
+    shortcut: "/logo-transparent.png",
+    apple: "/logo-transparent.png",
+  },
 };
 
 export default function RootLayout({
