@@ -59,20 +59,40 @@ export const CONTACT_INFO = {
     "Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
   details: [
     {
-      type: "Head Office",
-      lines: ["123 Business Tower, Floor 15", "Mumbai, Maharashtra 400001"],
+      type: "Address",
+      lines: [
+        "M/s Ashil & Associates",
+        "Chartered Accountants",
+        "Door No. 64/2822-D,",
+        "Vazhakuttathil Building Kk Road,",
+        "Opp Axis Bank,",
+        "Cochin -682017",
+      ],
       icon: "map-pin",
-      url: "https://www.google.com/maps/place/Mumbai,+Maharashtra",
+      url: "https://www.google.com/maps/search/Door+No.+64/2822-D,+Vazhakuttathil+Building+Kk+Road,+Opp+Axis+Bank,+Cochin+-682017",
     },
     {
       type: "Phone",
-      lines: ["+91 98765 43210", "+91 22 1234 5678"],
+      lines: [
+        "Office : 0484 - 4062030",
+        "Office : 0484 - 4042112",
+        "Mob Phone: 09946010020",
+      ],
       icon: "phone",
     },
     {
-      type: "Email",
-      lines: ["info@ashilassociates.com", "enquiry@ashilassociates.com"],
+      type: "E-mail",
+      lines: [
+        "ashil@ashilandassociates.com",
+        "Info@ashilandassociates.com",
+        "aakochin@ashilandassociates.com",
+      ],
       icon: "mail",
+    },
+    {
+      type: "Website",
+      lines: ["www.ashilandassociates.com"],
+      icon: "globe",
     },
   ],
   form: {

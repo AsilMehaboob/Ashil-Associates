@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import { CONTACT_INFO } from "@/constants";
-import { MapPin, Phone, Mail, Loader2, Check } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, Loader2, Check } from "lucide-react";
 import { submitContactForm } from "@/app/actions";
 import { motion } from "framer-motion";
 
@@ -10,6 +10,7 @@ const IconMap: Record<string, React.ElementType> = {
   "map-pin": MapPin,
   phone: Phone,
   mail: Mail,
+  globe: Globe,
 };
 
 function Icon({ name, className }: { name: string; className?: string }) {
@@ -88,17 +89,26 @@ export default function Contact() {
                       </a>
                     ) : (
                       detail.lines.map((line, i) => {
-                        const href =
-                          detail.icon === "phone"
-                            ? `tel:${line.replace(/\s+/g, "")}`
-                            : detail.icon === "mail"
-                            ? `mailto:${line}`
-                            : undefined;
+                        let href: string | undefined;
+                        if (detail.icon === "phone") {
+                          // Extract all digits from the line
+                          const digits = line.replace(/\D/g, "");
+                          if (digits.length >= 10) {
+                            // Format as Indian phone number
+                            href = `tel:+91${digits}`;
+                          }
+                        } else if (detail.icon === "mail") {
+                          href = `mailto:${line}`;
+                        } else if (detail.icon === "globe") {
+                          href = `https://${line.replace(/^https?:\/\//, "")}`;
+                        }
 
                         return href ? (
                           <a
                             key={i}
                             href={href}
+                            target={detail.icon === "globe" ? "_blank" : undefined}
+                            rel={detail.icon === "globe" ? "noopener noreferrer" : undefined}
                             className="block text-sm font-medium text-[var(--color-midnight-500)] leading-relaxed hover:text-[var(--color-midnight-900)] transition-colors"
                           >
                             {line}
