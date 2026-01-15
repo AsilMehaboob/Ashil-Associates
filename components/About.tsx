@@ -63,7 +63,7 @@ export default function About() {
                   <div className="text-3xl md:text-4xl font-serif text-black mb-2">
                     {stat.value}
                   </div>
-                  <div className="text-xs font-medium tracking-[0.15em] text-gray-400 uppercase font-sans">
+                  <div className="text-xs font-medium tracking-[0.15em] text-gray-400 uppercase font-sans w-[120px]">
                     {stat.label}
                   </div>
                 </div>
