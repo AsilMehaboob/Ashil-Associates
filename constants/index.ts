@@ -175,3 +175,162 @@ export const FAQ_CONTENT = {
     },
   ],
 };
+
+export const TESTIMONIALS_CONTENT = {
+  sectionHeader: "TESTIMONIALS",
+  title: "Hear From Those Who Achieved Financial Freedom",
+  items: [
+    {
+      quote:
+        "Ashil & Associates transformed our financial operations. Their expertise in GCC taxation and compliance has been invaluable for our cross-border business. The team's dedication to timely delivery and accuracy is exceptional.",
+      name: "Rajesh Kumar",
+      title: "CEO, TechNext Solutions",
+      location: "Dubai, UAE",
+      initial: "R",
+    },
+    {
+      quote:
+        "Working with Ashil & Associates has been a game-changer for our business. Their strategic financial planning and tax optimization strategies have significantly improved our bottom line. Highly recommended!",
+      name: "Sarah Al-Mansoori",
+      title: "CFO, Global Ventures",
+      location: "Abu Dhabi, UAE",
+      initial: "S",
+    },
+    {
+      quote:
+        "The professionalism and expertise of Ashil & Associates is unmatched. They helped us navigate complex regulatory requirements with ease. Their personalized approach makes all the difference.",
+      name: "Mohammed Hassan",
+      title: "Managing Director, Emirates Trading Co.",
+      location: "Sharjah, UAE",
+      initial: "M",
+    },
+  ],
+};
+
+export const WHY_CHOOSE_US_CONTENT = {
+  sectionHeader: "WHY CHOOSE US",
+  title: "Amazing accounting statistics show the power of numbers.",
+  buttonText: "GET STARTED",
+  features: [
+    {
+      title: "What sets us apart? Strong commitment to compliance.",
+      description:
+        "We ensure your business adheres to all regulatory requirements with meticulous attention to detail and proactive compliance management.",
+      image:
+        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      title: "We value your trust with absolute confidentiality.",
+      description:
+        "Your financial information is protected with stringent security protocols and professional ethics that prioritize your privacy.",
+      image:
+        "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      title: "Embrace automation with technology-driven processes.",
+      description:
+        "Leveraging cutting-edge tools and automation to deliver accurate, efficient, and insightful financial solutions.",
+      image:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    },
+  ],
+};
+
+export const KEY_SERVICES_CONTENT = [
+  "Audit Assurance",
+  "Tax Compliance",
+  "Virtual CFO",
+  "GCC VAT",
+  "Corporate Tax",
+  "Accounting Services",
+  "Business Advisory",
+  "Financial Planning",
+];
+
+export const ABOUT_CONTENT = {
+  sectionHeader: "ABOUT THE FIRM",
+  title: "With a global reach, our firm has been in business since 1998.",
+  description: [
+    "Ashil & Associates is a distinguished Chartered Accountancy firm committed to delivering exceptional professional services across India and the GCC region. With a foundation built on integrity, expertise, and client-centric values, we serve as trusted advisors to businesses navigating complex financial landscapes.",
+    "Our multidisciplinary team brings together specialists in taxation, audit, advisory, and technology-driven financial solutions. We pride ourselves on understanding each client's unique needs and delivering tailored strategies.",
+  ],
+  stats: [
+    { value: "25+", label: "Years Experience" },
+    { value: "500+", label: "Clients Served" },
+    { value: "7", label: "Countries" },
+  ],
+  image:
+    "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+};
+
+export const SERVICES_CONTENT = {
+  sectionHeader: "WHAT WE OFFER",
+  title: "Our Services",
+  items: [
+    {
+      title: "Audit & Assurance",
+      description:
+        "Comprehensive audit services ensuring accuracy, compliance, and transparency in financial reporting.",
+      details: [
+        "Statutory Audits",
+        "Internal Audits",
+        "Tax Audits",
+        "Concurrent Audits",
+        "Stock Audits",
+        "Due Diligence",
+      ],
+    },
+    {
+      title: "Tax & Regulatory Compliance",
+      description:
+        "Expert guidance on tax planning, compliance, and regulatory requirements to optimize your tax position.",
+      details: [
+        "Income Tax Planning & Filing",
+        "GST Registration & Returns",
+        "TDS Compliance",
+        "Transfer Pricing",
+        "International Taxation",
+        "Tax Litigation Support",
+      ],
+    },
+    {
+      title: "GCC/VAT & Corporate Tax",
+      description:
+        "Specialized services for GCC region VAT and Corporate Tax compliance and advisory.",
+      details: [
+        "VAT Registration & Compliance",
+        "Corporate Tax Advisory",
+        "Tax Impact Assessment",
+        "VAT Refund Services",
+        "Transfer Pricing Documentation",
+        "Tax Health Check",
+      ],
+    },
+    {
+      title: "Virtual CFO Advisory",
+      description:
+        "Strategic financial leadership and guidance without the cost of a full-time CFO.",
+      details: [
+        "Financial Planning & Analysis",
+        "Budgeting & Forecasting",
+        "Cash Flow Management",
+        "Financial Reporting",
+        "Strategic Business Advisory",
+        "Risk Management",
+      ],
+    },
+    {
+      title: "International Taxation",
+      description:
+        "Navigate complex cross-border tax issues with our international taxation expertise.",
+      details: [
+        "Cross-Border Tax Planning",
+        "DTAA Benefits",
+        "Foreign Tax Credit",
+        "FEMA Compliance",
+        "Expatriate Taxation",
+        "Global Mobility Services",
+      ],
+    },
+  ],
+};

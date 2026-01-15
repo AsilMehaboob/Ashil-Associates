@@ -73,7 +73,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 7rem; /* Offset for fixed navbar */
+  scroll-padding-top: 7rem;
 }
 
 @theme inline {

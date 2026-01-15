@@ -1,36 +1,35 @@
-"use client"
-export default function KeyServicesMarquee() {
-  const services = [
-    "Audit Assurance",
-    "Tax Compliance",
-    "Virtual CFO",
-    "GCC VAT",
-    "Corporate Tax",
-    "Accounting Services",
-    "Business Advisory",
-    "Financial Planning",
-  ];
+"use client";
 
+import { KEY_SERVICES_CONTENT } from "@/constants";
+
+export default function KeyServicesMarquee() {
   return (
-    <section className="w-full overflow-hidden py-6" style={{ backgroundColor: '#090E16' }}>
+    <section
+      className="w-full overflow-hidden py-10"
+      style={{ backgroundColor: "#090E16" }}
+    >
       <div className="marquee-container">
         <div className="marquee-content">
-          {/* First set of services */}
-          {services.map((service, index) => (
-            <span key={`service-1-${index}`} className="inline-flex items-center">
-              <span className="text-white text-lg md:text-xl font-serif font-light whitespace-nowrap px-8">
+          {KEY_SERVICES_CONTENT.map((service, index) => (
+            <span
+              key={`service-1-${index}`}
+              className="inline-flex items-center"
+            >
+              <span className="text-white text-2xl md:text-3xl font-serif font-light whitespace-nowrap px-12">
                 {service}
               </span>
-              <span className="text-white/40 text-2xl">✦</span>
+              <span className="text-white/40 text-3xl">✦</span>
             </span>
           ))}
-          {/* Duplicate set for seamless loop */}
-          {services.map((service, index) => (
-            <span key={`service-2-${index}`} className="inline-flex items-center">
-              <span className="text-white text-lg md:text-xl font-serif font-light whitespace-nowrap px-8">
+          {KEY_SERVICES_CONTENT.map((service, index) => (
+            <span
+              key={`service-2-${index}`}
+              className="inline-flex items-center"
+            >
+              <span className="text-white text-2xl md:text-3xl font-serif font-light whitespace-nowrap px-12">
                 {service}
               </span>
-              <span className="text-white/40 text-2xl">✦</span>
+              <span className="text-white/40 text-3xl">✦</span>
             </span>
           ))}
         </div>
@@ -44,7 +43,7 @@ export default function KeyServicesMarquee() {
 
         .marquee-content {
           display: flex;
-          animation: scroll 30s linear infinite;
+          animation: scroll 40s linear infinite;
           will-change: transform;
         }
 

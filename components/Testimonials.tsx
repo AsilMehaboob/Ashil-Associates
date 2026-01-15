@@ -3,133 +3,109 @@
 import { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const testimonials = [
-  {
-    id: 1,
-    quote:
-      "Ashil & Associates transformed our financial operations. Their expertise in GCC taxation and compliance has been invaluable for our cross-border business. The team's dedication to timely delivery and accuracy is exceptional.",
-    name: "Rajesh Kumar",
-    title: "CEO, TechNext Solutions",
-    location: "Dubai, UAE",
-    initial: "R",
-  },
-  {
-    id: 2,
-    quote:
-      "Working with Ashil & Associates has been a game-changer for our business. Their strategic financial planning and tax optimization strategies have significantly improved our bottom line. Highly recommended!",
-    name: "Sarah Al-Mansoori",
-    title: "CFO, Global Ventures",
-    location: "Abu Dhabi, UAE",
-    initial: "S",
-  },
-  {
-    id: 3,
-    quote:
-      "The professionalism and expertise of Ashil & Associates is unmatched. They helped us navigate complex regulatory requirements with ease. Their personalized approach makes all the difference.",
-    name: "Mohammed Hassan",
-    title: "Managing Director, Emirates Trading Co.",
-    location: "Sharjah, UAE",
-    initial: "M",
-  },
-];
+import { TESTIMONIALS_CONTENT } from "@/constants";
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const { items } = TESTIMONIALS_CONTENT;
 
   const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    setCurrentIndex((prev) => (prev + 1) % items.length);
   };
 
   const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentIndex((prev) => (prev - 1 + items.length) % items.length);
   };
 
-  // Auto-rotate testimonials every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000); // Change every 5 seconds
+      setCurrentIndex((prev) => (prev + 1) % items.length);
+    }, 5000);
 
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, []);
+    return () => clearInterval(interval);
+  }, [items.length]);
 
   return (
-    <section className="bg-[#F5F5F0] py-24 px-6 overflow-hidden">
+    <section className="bg-[#F5F5F0] py-20 px-6 sm:px-8 lg:px-12 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <p className="text-sm tracking-[0.2em] text-gray-600 mb-4">
-            TESTIMONIALS
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-gray-500 mb-6 font-sans">
+            {TESTIMONIALS_CONTENT.sectionHeader}
           </p>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif">
-            Hear From Those Who Achieved
-            <br />
-            <em className="font-serif">Financial Freedom</em>
+          <h2 className="text-4xl sm:text-5xl font-serif text-black leading-[1.15] max-w-4xl mx-auto">
+            {TESTIMONIALS_CONTENT.title}
           </h2>
-        </div>
+        </motion.div>
 
         {/* Testimonial Stack */}
-        <div className="relative max-w-4xl mx-auto h-[500px] md:h-[450px]">
-          {/* Navigation Arrows - Moved outside appropriately or z-indexed above */}
+        <div className="relative max-w-4xl mx-auto h-[450px] md:h-[400px]">
+          {/* Navigation Arrows */}
           <div className="absolute top-1/2 -translate-y-1/2 left-0 -translate-x-4 md:-translate-x-24 z-50 hidden md:block">
             <button
               onClick={prevTestimonial}
-              className="w-12 h-12 bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300 rounded-full"
+              className="w-12 h-12 bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300 rounded-sm cursor-pointer"
               aria-label="Previous testimonial"
             >
-              <ArrowLeft size={24} />
+              <ArrowLeft size={20} />
             </button>
           </div>
 
           <div className="absolute top-1/2 -translate-y-1/2 right-0 translate-x-4 md:translate-x-24 z-50 hidden md:block">
-             <button
+            <button
               onClick={nextTestimonial}
-              className="w-12 h-12 bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300 rounded-full"
+              className="w-12 h-12 bg-white shadow-md flex items-center justify-center text-gray-600 hover:text-gray-900 hover:shadow-lg transition-all duration-300 rounded-sm cursor-pointer"
               aria-label="Next testimonial"
             >
-              <ArrowRight size={24} />
+              <ArrowRight size={20} />
             </button>
           </div>
 
           {/* Cards */}
-          <div className="relative w-full h-full"> 
-             <AnimatePresence>
-              {testimonials.map((testimonial, index) => {
-                // Calculate position relative to key index
-                const offset = (index - currentIndex + testimonials.length) % testimonials.length;
-                
-                // Allow only top 3 cards to be visible/interactable for performance visually
+          <div className="relative w-full h-full">
+            <AnimatePresence>
+              {items.map((testimonial, index) => {
+                const offset =
+                  (index - currentIndex + items.length) % items.length;
+
                 const isActive = offset === 0;
-                
+
+                if (offset > 2 && offset !== items.length - 1) return null;
+
                 return (
                   <motion.div
-                    key={testimonial.id}
-                    className="absolute top-0 left-0 w-full h-full bg-white p-8 md:p-16 shadow-xl rounded-2xl flex flex-col border border-gray-100"
+                    key={index}
+                    className="absolute top-0 left-0 w-full h-full bg-white p-8 md:p-12 shadow-xl rounded-sm flex flex-col border border-gray-100"
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
                     animate={{
-                      opacity: 1, // Always visible if in the map, control via z-index
+                      opacity: isActive || offset <= 2 ? 1 : 0,
                       scale: 1 - offset * 0.05,
-                      y: offset * 20, // Stack vertical offset
-                      zIndex: testimonials.length - offset, // 0 offset = highest z-index
-                      filter: isActive ? "blur(0px)" : "blur(1px)", // Subtle blur for depth
+                      y: offset * 20,
+                      zIndex: items.length - offset,
+                      filter: isActive ? "blur(0px)" : "blur(1px)",
                     }}
                     transition={{
                       duration: 0.5,
-                      ease: "easeInOut"
+                      ease: "easeInOut",
                     }}
                     style={{
                       transformOrigin: "top center",
                     }}
                   >
                     {/* Quote Icon */}
-                    <div className="mb-6 md:mb-8">
+                    <div className="mb-6">
                       <svg
-                        width="40"
-                        height="32"
+                        width="32"
+                        height="24"
                         viewBox="0 0 40 32"
                         fill="none"
-                        className="text-gray-300 w-8 h-6 md:w-10 md:h-8"
+                        className="text-gray-300 w-8 h-6"
                       >
                         <path
                           d="M0 32V16C0 7.168 5.504 0 17.6 0v6.4C11.264 6.4 8.8 10.24 8.8 16h8.8v16H0zm22.4 0V16C22.4 7.168 27.904 0 40 0v6.4C33.664 6.4 31.2 10.24 31.2 16H40v16H22.4z"
@@ -139,8 +115,8 @@ export default function Testimonials() {
                     </div>
 
                     {/* Quote Text */}
-                    <blockquote className="mb-8 md:mb-12 flex-grow">
-                      <p className="text-lg md:text-2xl font-serif font-medium italic leading-relaxed text-gray-800">
+                    <blockquote className="mb-8 flex-grow">
+                      <p className="text-xl md:text-2xl font-serif font-medium italic leading-relaxed text-gray-800">
                         "{testimonial.quote}"
                       </p>
                     </blockquote>
@@ -148,16 +124,16 @@ export default function Testimonials() {
                     {/* Client Info */}
                     <div className="mt-auto flex items-center gap-4">
                       {/* Avatar */}
-                      <div className="w-12 h-12 bg-black text-white flex items-center justify-center font-semibold text-lg shrink-0 rounded-full">
+                      <div className="w-10 h-10 bg-black text-white flex items-center justify-center font-semibold text-sm shrink-0 rounded-full font-sans">
                         {testimonial.initial}
                       </div>
 
                       {/* Name and Title */}
-                      <div>
-                        <p className="font-semibold text-gray-900">
+                      <div className="font-sans">
+                        <p className="font-semibold text-gray-900 text-sm">
                           {testimonial.name}
                         </p>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-xs text-gray-500 uppercase tracking-wider mt-0.5">
                           {testimonial.title} · {testimonial.location}
                         </p>
                       </div>
@@ -169,15 +145,15 @@ export default function Testimonials() {
           </div>
 
           {/* Dots Indicator */}
-          <div className="absolute -bottom-16 left-0 right-0 flex justify-center gap-2">
-            {testimonials.map((_, index) => (
+          <div className="absolute -bottom-12 left-0 right-0 flex justify-center gap-2">
+            {items.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`h-1.5 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "bg-gray-800 w-8"
-                    : "bg-gray-300 hover:bg-gray-400"
+                    ? "bg-black w-8"
+                    : "bg-gray-300 w-1.5 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
