@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Plus, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/constants";
 
 const handleSmoothScroll = (
@@ -21,15 +22,25 @@ const handleSmoothScroll = (
 export default function Nav() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+
+  // Pages that should have visible navbar from the start
+  const pagesWithVisibleNavbar = ["/privacy-policy", "/terms-of-service"];
+  const shouldStartVisible = pagesWithVisibleNavbar.includes(pathname || "");
 
   useEffect(() => {
+    // If on a page that needs visible navbar, set scrolled state immediately
+    if (shouldStartVisible) {
+      setIsScrolled(true);
+    }
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 20 || shouldStartVisible);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [shouldStartVisible]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
