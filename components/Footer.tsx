@@ -4,17 +4,9 @@ import { FOOTER_CONTENT } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Linkedin, Mail, Facebook, Instagram } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Footer() {
-  const SocialIcons = {
-    linkedin: Linkedin,
-    mail: Mail,
-    facebook: Facebook,
-    instagram: Instagram,
-  };
-
   return (
     <footer className="bg-[#090f15] text-white pt-24 pb-12 px-6 border-t border-white/5">
       <motion.div
@@ -39,24 +31,6 @@ export default function Footer() {
             <p className="text-sm text-gray-400 leading-relaxed font-sans max-w-md mb-10">
               {FOOTER_CONTENT.description}
             </p>
-            <div className="flex gap-4">
-              {Object.keys(SocialIcons).map((key) => {
-                const Icon = SocialIcons[key as keyof typeof SocialIcons];
-                return (
-                  <a
-                    key={key}
-                    href="#"
-                    aria-label={`Visit our ${key} page`}
-                    className="w-10 h-10 bg-[#151b21] flex items-center justify-center rounded-sm hover:bg-[#1e252c] transition-colors duration-300 group"
-                  >
-                    <Icon
-                      className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors duration-300"
-                      strokeWidth={1.5}
-                    />
-                  </a>
-                );
-              })}
-            </div>
           </div>
 
           {/* Right Columns: Links */}

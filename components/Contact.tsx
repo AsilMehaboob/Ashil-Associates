@@ -90,14 +90,7 @@ export default function Contact() {
                     ) : (
                       detail.lines.map((line, i) => {
                         let href: string | undefined;
-                        if (detail.icon === "phone") {
-                          // Extract all digits from the line
-                          const digits = line.replace(/\D/g, "");
-                          if (digits.length >= 10) {
-                            // Format as Indian phone number
-                            href = `tel:+91${digits}`;
-                          }
-                        } else if (detail.icon === "mail") {
+                        if (detail.icon === "mail") {
                           href = `mailto:${line}`;
                         } else if (detail.icon === "globe") {
                           href = `https://${line.replace(/^https?:\/\//, "")}`;
@@ -107,8 +100,14 @@ export default function Contact() {
                           <a
                             key={i}
                             href={href}
-                            target={detail.icon === "globe" ? "_blank" : undefined}
-                            rel={detail.icon === "globe" ? "noopener noreferrer" : undefined}
+                            target={
+                              detail.icon === "globe" ? "_blank" : undefined
+                            }
+                            rel={
+                              detail.icon === "globe"
+                                ? "noopener noreferrer"
+                                : undefined
+                            }
                             className="block text-sm font-medium text-[var(--color-midnight-500)] leading-relaxed hover:text-[var(--color-midnight-900)] transition-colors"
                           >
                             {line}

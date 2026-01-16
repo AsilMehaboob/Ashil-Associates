@@ -71,14 +71,14 @@ export const CONTACT_INFO = {
         "Cochin -682017",
       ],
       icon: "map-pin",
-      url: "https://www.google.com/maps/search/Door+No.+64/2822-D,+Vazhakuttathil+Building+Kk+Road,+Opp+Axis+Bank,+Cochin+-682017",
+      url: "https://maps.app.goo.gl/ayZXTJUieC9iaFum7",
     },
     {
       type: "Phone",
       lines: [
         "Office : 0484 - 4062030",
         "Office : 0484 - 4042112",
-        "Mob Phone: 09946010020",
+        "Mob Phone : 9946010020",
       ],
       icon: "phone",
     },
@@ -86,16 +86,16 @@ export const CONTACT_INFO = {
       type: "E-mail",
       lines: [
         "ashil@ashilandassociates.com",
-        "Info@ashilandassociates.com",
+        "info@ashilandassociates.com",
         "aakochin@ashilandassociates.com",
       ],
       icon: "mail",
     },
-    {
-      type: "Website",
-      lines: ["www.ashilandassociates.com"],
-      icon: "globe",
-    },
+    // {
+    //   type: "Website",
+    //   lines: ["www.ashilandassociates.com"],
+    //   icon: "globe",
+    // },
   ],
   form: {
     fields: [
@@ -160,42 +160,39 @@ export const FOOTER_CONTENT = {
 };
 
 export const TEAM_CONTENT = {
-  sectionHeader: "TEAM",
-  title: "Leadership",
+  sectionHeader: "Leadership",
+  title: "Our Core Team",
   members: [
     {
       name: "CA. Ashil M.A., FCA",
       role: "Senior Partner",
       description:
         "Founder and senior advisor with over 25 years of experience in audit, taxation, and regulatory advisory across India and the GCC.",
-      socials: { linkedin: "#", mail: "mailto:ashil@example.com" },
-      image:
-        "/ashil.jpg",
+      // socials: { linkedin: "#", mail: "mailto:ashil@example.com" },
+      image: "/ashil.jpg",
     },
     {
       name: "CA. Ceeja Udayanan, FCA",
       role: "Partner",
       description:
         "Specialist in financial reporting, auditing, and end-to-end accounting operations across diverse industries.",
-      socials: { linkedin: "#", mail: "mailto:ceeja@example.com" },
-      image:
-        "/ceeja.jpg",
+      // socials: { linkedin: "#", mail: "mailto:ceeja@example.com" },
+      image: "/ceeja.jpg",
     },
     {
       name: "CA. Saandra Thomas, FCA",
       role: "Partner",
       description:
         "Expert in internal audits, process frameworks, and forensic investigations with extensive public and private sector experience.",
-      socials: { linkedin: "#", mail: "mailto:saandra@example.com" },
-      image:
-        "/saandra.jpg",
+      // socials: { linkedin: "#", mail: "mailto:saandra@example.com" },
+      image: "/saandra.jpg",
     },
     {
       name: "CS. Manju Sebastian, ACS",
       role: "Senior Associate – Company Secretary",
       description:
         "Corporate governance and regulatory compliance professional with strong expertise in company law and board advisory.",
-      socials: { linkedin: "#", mail: "mailto:manju@example.com" },
+      // socials: { linkedin: "#", mail: "mailto:manju@example.com" },
       image:
         "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
@@ -204,16 +201,15 @@ export const TEAM_CONTENT = {
       role: "Senior Audit Manager",
       description:
         "Experienced audit professional specializing in statutory audits, taxation, and regulatory representations.",
-      socials: { linkedin: "#", mail: "mailto:vidhya@example.com" },
-      image:
-        "/vidhya.jpg",
+      // socials: { linkedin: "#", mail: "mailto:vidhya@example.com" },
+      image: "/vidhya.jpg",
     },
     {
       name: "Binsa N.H., CMA Finalist",
       role: "Team Head – International Outsource Division",
       description:
         "Leads international finance outsourcing and Virtual CFO engagements with a focus on MIS, compliance, and strategic finance.",
-      socials: { linkedin: "#", mail: "mailto:binsa@example.com" },
+      // socials: { linkedin: "#", mail: "mailto:binsa@example.com" },
       image:
         "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
     },

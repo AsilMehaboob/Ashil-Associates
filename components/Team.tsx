@@ -38,7 +38,7 @@ export default function Team() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {TEAM_CONTENT.members.map((member, index) => (
+          {TEAM_CONTENT.members.map((member: any, index) => (
             <motion.div
               key={member.name}
               className="group"
@@ -66,22 +66,24 @@ export default function Team() {
                 {member.description}
               </p>
 
-              <div className="flex gap-3">
-                <a
-                  href={member.socials.linkedin}
-                  aria-label={`${member.name}'s LinkedIn`}
-                  className="w-8 h-8 bg-[var(--color-midnight-800)] flex items-center justify-center rounded-sm text-gray-400 hover:bg-[var(--color-midnight-700)] hover:text-white transition-colors duration-300"
-                >
-                  <SocialIcon name="linkedin" />
-                </a>
-                <a
-                  href={member.socials.mail}
-                  aria-label={`Email ${member.name}`}
-                  className="w-8 h-8 bg-[var(--color-midnight-800)] flex items-center justify-center rounded-sm text-gray-400 hover:bg-[var(--color-midnight-700)] hover:text-white transition-colors duration-300"
-                >
-                  <SocialIcon name="mail" />
-                </a>
-              </div>
+              {member.socials && (
+                <div className="flex gap-3">
+                  <a
+                    href={member.socials.linkedin}
+                    aria-label={`${member.name}'s LinkedIn`}
+                    className="w-8 h-8 bg-[var(--color-midnight-800)] flex items-center justify-center rounded-sm text-gray-400 hover:bg-[var(--color-midnight-700)] hover:text-white transition-colors duration-300"
+                  >
+                    <SocialIcon name="linkedin" />
+                  </a>
+                  <a
+                    href={member.socials.mail}
+                    aria-label={`Email ${member.name}`}
+                    className="w-8 h-8 bg-[var(--color-midnight-800)] flex items-center justify-center rounded-sm text-gray-400 hover:bg-[var(--color-midnight-700)] hover:text-white transition-colors duration-300"
+                  >
+                    <SocialIcon name="mail" />
+                  </a>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>
