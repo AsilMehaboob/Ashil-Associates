@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Manrope } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -20,7 +21,11 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Ashil & Associates",
+  metadataBase: new URL("https://www.ashilandassociates.com"),
+  title: {
+    default: "Ashil & Associates | Chartered Accountants & Business Advisors",
+    template: "%s | Ashil & Associates",
+  },
   description:
     "Ashil & Associates delivers world-class accounting and advisory services with a focus on precision and professional integrity across India and the GCC.",
   keywords: [
@@ -35,7 +40,54 @@ export const metadata: Metadata = {
     "UAE",
     "Financial Services",
     "Bookkeeping",
+    "Business Consulting",
   ],
+  authors: [{ name: "Ashil & Associates" }],
+  creator: "Ashil & Associates",
+  publisher: "Ashil & Associates",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Ashil & Associates | Chartered Accountants & Business Advisors",
+    description:
+      "Ashil & Associates delivers world-class accounting and advisory services with a focus on precision and professional integrity across India and the GCC.",
+    url: "https://www.ashilandassociates.com",
+    siteName: "Ashil & Associates",
+    images: [
+      {
+        url: "/logo-black.png",
+        width: 800,
+        height: 600,
+        alt: "Ashil & Associates Logo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ashil & Associates",
+    description:
+      "Ashil & Associates delivers world-class accounting and advisory services with a focus on precision and professional integrity across India and the GCC.",
+    images: ["/logo-black.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: "/logo-transparent.png",
     shortcut: "/logo-transparent.png",
@@ -51,6 +103,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${manrope.variable}`}>
       <body className="antialiased scroll-smooth">
+        <JsonLd />
         <Nav />
         {children}
         <Footer />
