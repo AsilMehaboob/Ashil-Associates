@@ -211,7 +211,7 @@ export const TEAM_CONTENT = {
         "Leads international finance outsourcing and Virtual CFO engagements with a focus on MIS, compliance, and strategic finance.",
       // socials: { linkedin: "#", mail: "mailto:binsa@example.com" },
       image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "/binsa.jpg",
     },
   ],
 };
