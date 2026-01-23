@@ -8,11 +8,11 @@ export const NAV_LINKS = [
 export const HOME_CONTENT = {
   heroImage: "/hero-bg.jpg",
   title: {
-    line1: "Finance",
+    line1: "Audit / Advisory",
     line2: "Made Simple.",
   },
   description:
-    "Ashil & Associates delivers world-class accounting and advisory services with a focus on precision and professional integrity across India and the GCC.",
+    "Ashil & Associates delivers Audit, Accounting , Financial Advisory & Litigation services with a focus on world class standards , precision and professional integrity across India and Globally.",
   buttons: {
     primary: "Schedule Consultation",
     secondary: "Learn More",
@@ -334,10 +334,11 @@ export const KEY_SERVICES_CONTENT = [
 
 export const ABOUT_CONTENT = {
   sectionHeader: "ABOUT THE FIRM",
-  title: "Over 25 years of expertise in audit, taxation, and advisory.",
+  title: "Over 15 years of expertise in audit, taxation, and advisory.",
   description: [
-    "Ashil & Associates is a professionally managed Chartered Accountancy firm offering audit, taxation, accounting, and advisory services to businesses across India and the GCC. Founded in 2010, the firm is backed by over 25 years of leadership experience and a strong commitment to professional integrity and regulatory excellence.",
-    "We support corporates, SMEs, and international businesses with end-to-end solutions including statutory and forensic audits, tax compliance, accounting and bookkeeping, finance outsourcing, and Virtual CFO services. With deep expertise in Indian and GCC regulations, our team delivers accurate, timely, and technology-driven financial solutions tailored to each client's needs.",
+    "Ashil & Associates is a professionally managed Chartered Accountancy firm offering audit, taxation, accounting, and advisory services to businesses across India and Globally . Founded in 2010, the firm is backed by over 25 years of leadership experience and a strong commitment to professional integrity and regulatory excellence.",
+    "We support corporates, SMEs, and international businesses with end-to-end solutions including statutory and forensic audits, tax compliance, accounting and bookkeeping, finance outsourcing, and Virtual CFO services. With deep expertise in Indian and GCC regulations, our team delivers accurate, timely, and technology-driven financial solutions tailored to each client’s needs.",
+    "Delivering compliance-led solutions with global standards and local expertise.",
   ],
   stats: [
     { value: "25+", label: "Years of Professional Experience" },
