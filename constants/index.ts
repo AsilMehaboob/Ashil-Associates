@@ -362,6 +362,8 @@ export const SERVICES_CONTENT = {
         "Concurrent Audits",
         "Stock Audits",
         "Due Diligence",
+        "Systems Audits",
+        "Forensic Audits",
       ],
     },
     {
@@ -372,7 +374,7 @@ export const SERVICES_CONTENT = {
         "Income Tax Planning & Filing",
         "GST Registration & Returns",
         "TDS Compliance",
-        "International Taxation",
+        "International Taxation ( FEMA )",
         "Transfer Pricing",
         "Tax Litigation Support",
       ],
