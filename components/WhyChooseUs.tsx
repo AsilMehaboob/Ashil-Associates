@@ -83,6 +83,7 @@ export default function WhyChooseUs() {
                     {feature.title}
                   </h3>
                   <p className="text-gray-600 font-sans leading-relaxed text-lg max-w-lg">
+                    <span className="font-semibold">{feature.subtitle}</span>{" "}
                     {feature.description}
                   </p>
                 </motion.div>

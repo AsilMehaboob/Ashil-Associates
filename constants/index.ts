@@ -193,8 +193,7 @@ export const TEAM_CONTENT = {
       description:
         "Corporate governance and regulatory compliance professional with strong expertise in company law and board advisory.",
       // socials: { linkedin: "#", mail: "mailto:manju@example.com" },
-      image:
-        "/manju.jpg",
+      image: "/manju.jpg",
     },
     {
       name: "CA. Vidhya Muraly, ACA",
@@ -210,8 +209,7 @@ export const TEAM_CONTENT = {
       description:
         "Leads international finance outsourcing and Virtual CFO engagements with a focus on MIS, compliance, and strategic finance.",
       // socials: { linkedin: "#", mail: "mailto:binsa@example.com" },
-      image:
-        "/binsa.jpg",
+      image: "/binsa.jpg",
     },
   ],
 };
@@ -301,20 +299,23 @@ export const WHY_CHOOSE_US_CONTENT = {
   features: [
     {
       title: "Commitment to Compliance",
+      subtitle: "Compliance isn't a task. It's our foundation.",
       description:
-        "Compliance isn't a task. It's our foundation. We ensure your business stays aligned with evolving regulatory requirements through meticulous audits, proactive compliance management, and strict adherence to statutory standards.",
+        "We ensure your business stays aligned with evolving regulatory requirements through meticulous audits, proactive compliance management, and strict adherence to statutory standards.",
       image: "/why-choose-us-1.jpg",
     },
     {
       title: "Absolute Confidentiality",
+      subtitle: "Your data. Protected with integrity.",
       description:
-        "Your data. Protected with integrity. We handle sensitive financial and business information with the highest levels of confidentiality, ethical responsibility, and robust security protocols.",
+        "We handle sensitive financial and business information with the highest levels of confidentiality, ethical responsibility, and robust security protocols.",
       image: "/why-choose-us-2.jpg",
     },
     {
       title: "Technology-Driven Processes",
+      subtitle: "Smarter systems. Faster insights.",
       description:
-        "Smarter systems. Faster insights. By leveraging modern accounting tools, automation, and ERP-driven workflows, we deliver accurate reporting, operational efficiency, and actionable financial insights.",
+        "By leveraging modern accounting tools, automation, and ERP-driven workflows, we deliver accurate reporting, operational efficiency, and actionable financial insights.",
       image: "/why-choose-us-3.jpg",
     },
   ],
