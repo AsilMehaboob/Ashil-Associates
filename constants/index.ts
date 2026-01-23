@@ -294,21 +294,21 @@ export const WHY_CHOOSE_US_CONTENT = {
       subtitle: "Compliance isn't a task. It's our foundation.",
       description:
         "We ensure your business stays aligned with evolving regulatory requirements through meticulous audits, proactive compliance management, and strict adherence to statutory standards.",
-      image: "/commitment-to-compliance.jpg",
+      image: "/why-choose-us-1.jpg",
     },
     {
       title: "Absolute Confidentiality",
       subtitle: "Your data. Protected with integrity.",
       description:
         "We handle sensitive financial and business information with the highest levels of confidentiality, ethical responsibility, and robust security protocols.",
-      image: "/absolute-confidentiality.jpg",
+      image: "/why-choose-us-2.jpg",
     },
     {
       title: "Technology-Driven Processes",
       subtitle: "Smarter systems. Faster insights.",
       description:
         "By leveraging modern accounting tools, automation, and ERP-driven workflows, we deliver accurate reporting, operational efficiency, and actionable financial insights.",
-      image: "/technology-driven-processes.jpg",
+      image: "/why-choose-us-3.jpg",
     },
   ],
 };
