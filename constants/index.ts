@@ -169,7 +169,7 @@ export const TEAM_CONTENT = {
       description:
         "Founder and senior advisor with over 25 years of experience in audit, taxation, and regulatory advisory across India and the GCC.",
       // socials: { linkedin: "#", mail: "mailto:ashil@example.com" },
-      image: "/ashil.jpg",
+      image: "/ashil.jpeg",
     },
     {
       name: "CA. Ceeja Udayanan, FCA",
@@ -186,14 +186,6 @@ export const TEAM_CONTENT = {
         "Expert in internal audits, process frameworks, and forensic investigations with extensive public and private sector experience.",
       // socials: { linkedin: "#", mail: "mailto:saandra@example.com" },
       image: "/saandra.jpg",
-    },
-    {
-      name: "CS. Manju Sebastian, ACS",
-      role: "Senior Associate – Company Secretary",
-      description:
-        "Corporate governance and regulatory compliance professional with strong expertise in company law and board advisory.",
-      // socials: { linkedin: "#", mail: "mailto:manju@example.com" },
-      image: "/manju.jpg",
     },
     {
       name: "CA. Vidhya Muraly, ACA",
