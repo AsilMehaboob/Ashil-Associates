@@ -149,6 +149,7 @@ export const FOOTER_CONTENT = {
         { label: "About", href: "/#about" },
         { label: "Services", href: "/#services" },
         { label: "Contact", href: "/#contact" },
+        { label: "Career", href: "/career" },
       ],
     },
   ],

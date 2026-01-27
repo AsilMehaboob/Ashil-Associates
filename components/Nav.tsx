@@ -25,7 +25,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   // Pages that should have visible navbar from the start
-  const pagesWithVisibleNavbar = ["/privacy-policy", "/terms-of-service"];
+  const pagesWithVisibleNavbar = ["/privacy-policy", "/terms-of-service", "/career"];
   const shouldStartVisible = pagesWithVisibleNavbar.includes(pathname || "");
   const isNavActive = isScrolled || shouldStartVisible || isMobileMenuOpen;
   const isHomePage = pathname === "/";
@@ -105,6 +105,16 @@ export default function Nav() {
                     {link.label}
                   </a>
                 ))}
+              <Link
+                href="/career"
+                className={`text-xs font-bold tracking-[0.2em] transition-colors font-sans cursor-pointer hover:text-[var(--color-midnight-900)] ${
+                  isNavActive
+                    ? "text-[var(--color-midnight-600)]"
+                    : "text-white/90 hover:text-white"
+                }`}
+              >
+                CAREER
+              </Link>
             </div>
 
             {isHomePage ? (
@@ -188,6 +198,19 @@ export default function Nav() {
                     {link.label}
                   </motion.a>
                 ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + NAV_LINKS.length * 0.1 }}
+              >
+                <Link
+                  href="/career"
+                  onClick={closeMobileMenu}
+                  className="text-2xl font-bold tracking-[0.2em] text-[var(--color-midnight-900)] hover:text-[var(--color-midnight-600)] transition-colors font-sans"
+                >
+                  CAREER
+                </Link>
+              </motion.div>
 
               {isHomePage ? (
                 <motion.a
