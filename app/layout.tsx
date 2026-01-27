@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     siteName: "Ashil & Associates",
     images: [
       {
-        url: "/logo-black.png",
+        url: "/logo.svg",
         width: 800,
         height: 600,
         alt: "Ashil & Associates Logo",
@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     title: "Ashil & Associates",
     description:
       "Ashil & Associates delivers world-class accounting and advisory services with a focus on precision and professional integrity across India and the GCC.",
-    images: ["/logo-black.png"],
+    images: ["/logo.svg"],
   },
   robots: {
     index: true,
@@ -89,9 +89,9 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo-transparent.png",
-    shortcut: "/logo-transparent.png",
-    apple: "/logo-transparent.png",
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+    apple: "/logo.svg",
   },
 };
 

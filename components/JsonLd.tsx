@@ -3,7 +3,7 @@ export default function JsonLd() {
     "@context": "https://schema.org",
     "@type": "AccountingService",
     name: "Ashil & Associates",
-    image: "https://www.ashilandassociates.com/logo-black.png",
+    image: "https://www.ashilandassociates.com/logo.svg",
     "@id": "https://www.ashilandassociates.com",
     url: "https://www.ashilandassociates.com",
     telephone: "+91-484-406-2030",

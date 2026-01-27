@@ -74,14 +74,16 @@ export default function Nav() {
           {/* Logo */}
           <Link
             href="/"
-            className="relative w-36 md:w-44 lg:w-48 h-10 md:h-12"
+            className="relative w-44 md:w-52 lg:w-56 h-14 md:h-16"
             onClick={closeMobileMenu}
           >
             <Image
-              src={isNavActive ? "/logo-transparent.png" : "/logo-white.png"}
+              src="/logo.svg"
               alt="Ashil & Associates"
               fill
-              className="object-contain object-left"
+              className={`object-contain object-left ${
+                isNavActive ? "" : "brightness-0 invert"
+              }`}
               priority
             />
           </Link>
