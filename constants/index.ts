@@ -74,18 +74,40 @@ export const CONTACT_INFO = {
       url: "https://maps.app.goo.gl/ayZXTJUieC9iaFum7",
     },
     {
-      type: "Phone",
+      type: "Office",
       lines: [
         "Office : 0484 - 4062030",
         "Office : 0484 - 4042112",
-        "Mob Phone : 9946010020",
+      ],
+      icon: "phone",
+    },
+    {
+      type: "CA. Ashil M.A., FCA",
+      lines: [
+        "+91 9946010020",
+        "ashil@ashilandassociates.com",
+      ],
+      icon: "phone",
+    },
+    {
+      type: "CA. Ceeja Udayanan, FCA",
+      lines: [
+        "+91 96453 43097",
+        "ceeja@ashilandassociates.com",
+      ],
+      icon: "phone",
+    },
+    {
+      type: "CA. Saandra Thomas, FCA",
+      lines: [
+        "+91 97458 44663",
+        "sandra@ashilandassociates.com",
       ],
       icon: "phone",
     },
     {
       type: "E-mail",
       lines: [
-        "ashil@ashilandassociates.com",
         "info@ashilandassociates.com",
         "aakochin@ashilandassociates.com",
       ],

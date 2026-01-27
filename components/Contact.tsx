@@ -92,6 +92,14 @@ export default function Contact() {
                         let href: string | undefined;
                         if (detail.icon === "mail") {
                           href = `mailto:${line}`;
+                        } else if (detail.icon === "phone") {
+                          // Check if line is a phone number (starts with + or contains digits)
+                          if (/^\+?\d/.test(line.trim())) {
+                            href = `tel:${line.replace(/\s/g, "")}`;
+                          } else if (line.includes("@")) {
+                            // If it's an email in a phone icon section, treat as mailto
+                            href = `mailto:${line}`;
+                          }
                         } else if (detail.icon === "globe") {
                           href = `https://${line.replace(/^https?:\/\//, "")}`;
                         }
