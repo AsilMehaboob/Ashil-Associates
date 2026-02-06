@@ -6,6 +6,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock, User, ArrowRight, Search, X } from "lucide-react";
 
+// Check if image is from localhost (needs unoptimized for dev)
+const isLocalImage = (url: string | null) =>
+  url?.includes("localhost") || url?.includes("127.0.0.1");
+
 interface BlogPost {
   slug: string;
   title: string;
@@ -150,6 +154,7 @@ export default function BlogClient({
                         alt={featuredPost.title}
                         fill
                         className="object-cover"
+                        unoptimized={isLocalImage(featuredPost.featuredImage)}
                       />
                     ) : (
                       <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-midnight-800)] to-[var(--color-midnight-950)] flex items-center justify-center">
@@ -216,6 +221,7 @@ export default function BlogClient({
                             alt={post.title}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            unoptimized={isLocalImage(post.featuredImage)}
                           />
                         ) : (
                           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-midnight-700)] to-[var(--color-midnight-900)] flex items-center justify-center group-hover:from-[var(--color-midnight-600)] group-hover:to-[var(--color-midnight-800)] transition-all duration-300">

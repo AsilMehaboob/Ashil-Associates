@@ -10,6 +10,10 @@ import {
 } from "@strapi/blocks-react-renderer";
 import { STRAPI_PUBLIC_URL } from "@/lib/strapi";
 
+// Check if image is from localhost (needs unoptimized for dev)
+const isLocalImage = (url: string | null | undefined) =>
+  url?.includes("localhost") || url?.includes("127.0.0.1");
+
 interface BlogPost {
   slug: string;
   title: string;
@@ -106,6 +110,7 @@ export default function BlogPostClient({
                   fill
                   className="object-cover"
                   priority
+                  unoptimized={isLocalImage(post.featuredImage)}
                 />
               ) : (
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-midnight-800)] to-[var(--color-midnight-950)] flex items-center justify-center">
@@ -182,27 +187,29 @@ export default function BlogPostClient({
                       <code>{children}</code>
                     </pre>
                   ),
-                  image: ({ image }) => (
-                    <figure className="my-8">
-                      <div className="relative aspect-video rounded-sm overflow-hidden">
-                        <Image
-                          src={
-                            image.url.startsWith("http")
-                              ? image.url
-                              : `${STRAPI_PUBLIC_URL}${image.url}`
-                          }
-                          alt={image.alternativeText || ""}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      {image.caption && (
-                        <figcaption className="text-center text-sm text-gray-500 mt-3 font-sans">
-                          {image.caption}
-                        </figcaption>
-                      )}
-                    </figure>
-                  ),
+                  image: ({ image }) => {
+                    const imgUrl = image.url.startsWith("http")
+                      ? image.url
+                      : `${STRAPI_PUBLIC_URL}${image.url}`;
+                    return (
+                      <figure className="my-8">
+                        <div className="relative aspect-video rounded-sm overflow-hidden">
+                          <Image
+                            src={imgUrl}
+                            alt={image.alternativeText || ""}
+                            fill
+                            className="object-cover"
+                            unoptimized={isLocalImage(imgUrl)}
+                          />
+                        </div>
+                        {image.caption && (
+                          <figcaption className="text-center text-sm text-gray-500 mt-3 font-sans">
+                            {image.caption}
+                          </figcaption>
+                        )}
+                      </figure>
+                    );
+                  },
                   link: ({ children, url }) => (
                     <a
                       href={url}
@@ -286,6 +293,7 @@ export default function BlogPostClient({
                             alt={relatedPost.title}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            unoptimized={isLocalImage(relatedPost.featuredImage)}
                           />
                         ) : (
                           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-midnight-700)] to-[var(--color-midnight-900)] flex items-center justify-center group-hover:from-[var(--color-midnight-600)] group-hover:to-[var(--color-midnight-800)] transition-all duration-300">

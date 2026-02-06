@@ -6,6 +6,36 @@ const STRAPI_URL = process.env.STRAPI_BASE_URL || "http://localhost:1337";
 export const STRAPI_PUBLIC_URL =
   process.env.NEXT_PUBLIC_STRAPI_URL || "http://localhost:1337";
 
+// Strapi v5 Media type (can have multiple formats)
+interface StrapiMedia {
+  id?: number;
+  documentId?: string;
+  name?: string;
+  alternativeText?: string | null;
+  caption?: string | null;
+  url?: string;
+  formats?: {
+    thumbnail?: { url: string };
+    small?: { url: string };
+    medium?: { url: string };
+    large?: { url: string };
+  };
+  // Strapi v4 nested structure
+  data?: {
+    id?: number;
+    attributes?: {
+      url?: string;
+      alternativeText?: string | null;
+      formats?: {
+        thumbnail?: { url: string };
+        small?: { url: string };
+        medium?: { url: string };
+        large?: { url: string };
+      };
+    };
+  };
+}
+
 // Types for Strapi Blog
 export interface StrapiBlog {
   id: number;
@@ -18,10 +48,7 @@ export interface StrapiBlog {
   author: string;
   readTime: string | null;
   publishedDate: string | null;
-  featuredImage?: {
-    url: string;
-    alternativeText: string | null;
-  } | null;
+  featuredImage?: StrapiMedia | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -84,7 +111,34 @@ export async function getBlogBySlug(slug: string): Promise<StrapiBlog | null> {
   }
 }
 
-// Helper to get full image URL
+// Helper to extract image URL from Strapi media object
+export function extractImageUrl(media: StrapiMedia | null | undefined): string | null {
+  if (!media) return null;
+
+  // Strapi v5 direct format: { url: "/uploads/..." }
+  if (media.url) {
+    return media.url.startsWith("http") ? media.url : `${STRAPI_URL}${media.url}`;
+  }
+
+  // Strapi v4 nested format: { data: { attributes: { url: "/uploads/..." } } }
+  if (media.data?.attributes?.url) {
+    const url = media.data.attributes.url;
+    return url.startsWith("http") ? url : `${STRAPI_URL}${url}`;
+  }
+
+  // Try formats (prefer larger sizes)
+  const formats = media.formats || media.data?.attributes?.formats;
+  if (formats) {
+    const url = formats.large?.url || formats.medium?.url || formats.small?.url || formats.thumbnail?.url;
+    if (url) {
+      return url.startsWith("http") ? url : `${STRAPI_URL}${url}`;
+    }
+  }
+
+  return null;
+}
+
+// Helper to get full image URL (simple string version)
 export function getStrapiImageUrl(url: string | undefined): string | null {
   if (!url) return null;
   if (url.startsWith("http")) return url;
@@ -93,6 +147,11 @@ export function getStrapiImageUrl(url: string | undefined): string | null {
 
 // Transform Strapi blog to match existing blog structure
 export function transformBlogPost(blog: StrapiBlog) {
+  // Debug: log the featuredImage structure
+  if (process.env.NODE_ENV === "development" && blog.featuredImage) {
+    console.log("Featured image structure:", JSON.stringify(blog.featuredImage, null, 2));
+  }
+
   return {
     slug: blog.slug,
     title: blog.title,
@@ -112,6 +171,6 @@ export function transformBlogPost(blog: StrapiBlog) {
         }),
     readTime: blog.readTime || "5 min read",
     content: blog.content,
-    featuredImage: getStrapiImageUrl(blog.featuredImage?.url),
+    featuredImage: extractImageUrl(blog.featuredImage),
   };
 }
