@@ -1,17 +1,38 @@
 "use client";
 
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Calendar, Clock, User, ArrowRight } from "lucide-react";
+import { Calendar, Clock, User, ArrowRight, Search, X } from "lucide-react";
 import { BLOG_CONTENT } from "@/constants";
 
 export default function Blog() {
+  const [searchQuery, setSearchQuery] = useState("");
+
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 },
   };
+
+  // Filter posts based on search query
+  const filteredPosts = useMemo(() => {
+    if (!searchQuery.trim()) {
+      return BLOG_CONTENT.posts;
+    }
+    const query = searchQuery.toLowerCase().trim();
+    return BLOG_CONTENT.posts.filter(
+      (post) =>
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query) ||
+        post.category.toLowerCase().includes(query) ||
+        post.author.toLowerCase().includes(query)
+    );
+  }, [searchQuery]);
+
+  const featuredPost = filteredPosts[0];
+  const remainingPosts = filteredPosts.slice(1);
 
   return (
     <div className="min-h-screen bg-white">
@@ -33,59 +54,113 @@ export default function Blog() {
             <p className="text-gray-600 font-sans text-base leading-relaxed max-w-2xl">
               {BLOG_CONTENT.description}
             </p>
+
+            {/* Search Bar */}
+            <div className="relative mt-8 max-w-md">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder="Search articles..."
+                  className="w-full pl-12 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-sm font-sans text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-gray-400 focus:ring-0 transition-colors"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                    aria-label="Clear search"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                )}
+              </div>
+              {searchQuery && (
+                <p className="mt-2 text-sm text-gray-500">
+                  {filteredPosts.length} {filteredPosts.length === 1 ? "result" : "results"} found
+                </p>
+              )}
+            </div>
           </motion.div>
+
+          {/* No Results State */}
+          {filteredPosts.length === 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="text-center py-16"
+            >
+              <Search className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+              <h3 className="text-xl font-serif text-black mb-2">No articles found</h3>
+              <p className="text-gray-500 font-sans text-sm mb-6">
+                No articles match your search for &quot;{searchQuery}&quot;
+              </p>
+              <button
+                onClick={() => setSearchQuery("")}
+                className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white text-xs font-bold tracking-[0.2em] hover:bg-gray-800 transition-colors"
+              >
+                CLEAR SEARCH
+              </button>
+            </motion.div>
+          )}
 
           {/* Featured Post */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-16"
-          >
-            <Link href={`/blog/${BLOG_CONTENT.posts[0].slug}`} className="group block">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gray-50 rounded-sm overflow-hidden">
-                <div className="relative aspect-[16/10] lg:aspect-auto bg-gray-200">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-midnight-800)] to-[var(--color-midnight-950)] flex items-center justify-center">
-                    <span className="text-white/20 font-serif text-6xl">Featured</span>
+          {featuredPost && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mb-16"
+              key={featuredPost.slug}
+            >
+              <Link href={`/blog/${featuredPost.slug}`} className="group block">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gray-50 rounded-sm overflow-hidden">
+                  <div className="relative aspect-[16/10] lg:aspect-auto bg-gray-200">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-midnight-800)] to-[var(--color-midnight-950)] flex items-center justify-center">
+                      <span className="text-white/20 font-serif text-6xl">Featured</span>
+                    </div>
+                  </div>
+                  <div className="p-8 lg:p-12 flex flex-col justify-center">
+                    <span className="text-xs tracking-[0.2em] text-gray-500 font-sans mb-4 uppercase">
+                      {featuredPost.category}
+                    </span>
+                    <h2 className="text-2xl md:text-3xl font-serif text-black mb-4 group-hover:text-gray-600 transition-colors">
+                      {featuredPost.title}
+                    </h2>
+                    <p className="text-gray-600 font-sans text-base leading-relaxed mb-6">
+                      {featuredPost.excerpt}
+                    </p>
+                    <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 font-sans mb-6">
+                      <span className="flex items-center gap-2">
+                        <User className="w-4 h-4" />
+                        {featuredPost.author}
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        {featuredPost.date}
+                      </span>
+                      <span className="flex items-center gap-2">
+                        <Clock className="w-4 h-4" />
+                        {featuredPost.readTime}
+                      </span>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-black group-hover:gap-3 transition-all">
+                      READ ARTICLE
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
                   </div>
                 </div>
-                <div className="p-8 lg:p-12 flex flex-col justify-center">
-                  <span className="text-xs tracking-[0.2em] text-gray-500 font-sans mb-4 uppercase">
-                    {BLOG_CONTENT.posts[0].category}
-                  </span>
-                  <h2 className="text-2xl md:text-3xl font-serif text-black mb-4 group-hover:text-gray-600 transition-colors">
-                    {BLOG_CONTENT.posts[0].title}
-                  </h2>
-                  <p className="text-gray-600 font-sans text-base leading-relaxed mb-6">
-                    {BLOG_CONTENT.posts[0].excerpt}
-                  </p>
-                  <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 font-sans mb-6">
-                    <span className="flex items-center gap-2">
-                      <User className="w-4 h-4" />
-                      {BLOG_CONTENT.posts[0].author}
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      {BLOG_CONTENT.posts[0].date}
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <Clock className="w-4 h-4" />
-                      {BLOG_CONTENT.posts[0].readTime}
-                    </span>
-                  </div>
-                  <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-black group-hover:gap-3 transition-all">
-                    READ ARTICLE
-                    <ArrowRight className="w-4 h-4" />
-                  </span>
-                </div>
-              </div>
-            </Link>
-          </motion.div>
+              </Link>
+            </motion.div>
+          )}
 
           {/* Blog Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {BLOG_CONTENT.posts.slice(1).map((post, index) => (
+          {remainingPosts.length > 0 && (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {remainingPosts.map((post, index) => (
               <motion.article
                 key={post.slug}
                 initial={{ opacity: 0, y: 20 }}
@@ -124,8 +199,9 @@ export default function Blog() {
                   </div>
                 </Link>
               </motion.article>
-            ))}
-          </div>
+              ))}
+            </div>
+          )}
         </div>
       </main>
     </div>
