@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Calendar, Clock, User } from "lucide-react";
+import { Calendar, Clock, User, ArrowRight } from "lucide-react";
 import { BLOG_CONTENT } from "@/constants";
 
 export default function Blog() {
@@ -126,29 +126,6 @@ export default function Blog() {
               </motion.article>
             ))}
           </div>
-
-          {/* CTA Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-24 bg-[#F5F5F0] p-8 sm:p-12 rounded-sm text-center"
-          >
-            <h2 className="text-2xl md:text-3xl font-serif text-black mb-4">
-              Stay Updated with Our Insights
-            </h2>
-            <p className="text-gray-600 font-sans text-base leading-relaxed mb-8 max-w-2xl mx-auto">
-              Subscribe to our newsletter for the latest updates on taxation, compliance, and financial advisory.
-            </p>
-            <Link
-              href="/#contact"
-              className="inline-flex items-center gap-2 bg-[var(--color-midnight-950)] text-white px-8 py-4 text-xs font-bold tracking-[0.2em] hover:bg-[var(--color-midnight-800)] transition-colors font-sans uppercase"
-            >
-              GET IN TOUCH
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
         </div>
       </main>
     </div>
