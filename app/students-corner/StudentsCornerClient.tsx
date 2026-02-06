@@ -10,7 +10,7 @@ import { Calendar, Clock, User, ArrowRight, Search, X } from "lucide-react";
 const isLocalImage = (url: string | null) =>
   url?.includes("localhost") || url?.includes("127.0.0.1");
 
-interface BlogPost {
+interface StudentArticle {
   slug: string;
   title: string;
   excerpt: string;
@@ -21,19 +21,19 @@ interface BlogPost {
   featuredImage: string | null;
 }
 
-interface BlogClientProps {
-  posts: BlogPost[];
+interface StudentsCornerClientProps {
+  posts: StudentArticle[];
   sectionHeader: string;
   title: string;
   description: string;
 }
 
-export default function BlogClient({
+export default function StudentsCornerClient({
   posts,
   sectionHeader,
   title,
   description,
-}: BlogClientProps) {
+}: StudentsCornerClientProps) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const fadeIn = {
@@ -145,7 +145,7 @@ export default function BlogClient({
               className="mb-16"
               key={featuredPost.slug}
             >
-              <Link href={`/blog/${featuredPost.slug}`} className="group block">
+              <Link href={`/students-corner/${featuredPost.slug}`} className="group block">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gray-50 rounded-sm overflow-hidden">
                   <div className="relative aspect-[16/10] lg:aspect-auto bg-gray-200">
                     {featuredPost.featuredImage ? (
@@ -198,7 +198,7 @@ export default function BlogClient({
             </motion.div>
           )}
 
-          {/* Blog Grid */}
+          {/* Article Grid */}
           {remainingPosts.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {remainingPosts.map((post, index) => (
@@ -210,7 +210,7 @@ export default function BlogClient({
                   transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
                 >
                   <Link
-                    href={`/blog/${post.slug}`}
+                    href={`/students-corner/${post.slug}`}
                     className="group block h-full"
                   >
                     <div className="bg-gray-50 rounded-sm overflow-hidden h-full flex flex-col">
@@ -271,7 +271,7 @@ export default function BlogClient({
                 No articles yet
               </h3>
               <p className="text-gray-500 font-sans text-sm">
-                Check back soon for new content.
+                Check back soon for new content for students.
               </p>
             </motion.div>
           )}

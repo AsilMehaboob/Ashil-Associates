@@ -25,7 +25,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   // Pages that should have visible navbar from the start
-  const pagesWithVisibleNavbar = ["/privacy-policy", "/terms-of-service", "/career", "/blog"];
+  const pagesWithVisibleNavbar = ["/privacy-policy", "/terms-of-service", "/career", "/blog", "/students-corner"];
   const shouldStartVisible = pagesWithVisibleNavbar.includes(pathname || "") || pathname?.startsWith("/blog/");
   const isNavActive = isScrolled || shouldStartVisible || isMobileMenuOpen;
   const isHomePage = pathname === "/";
@@ -126,6 +126,16 @@ export default function Nav() {
                 }`}
               >
                 BLOG
+              </Link>
+              <Link
+                href="/students-corner"
+                className={`text-xs font-bold tracking-[0.2em] transition-colors font-sans cursor-pointer hover:text-[var(--color-midnight-900)] ${
+                  isNavActive
+                    ? "text-[var(--color-midnight-600)]"
+                    : "text-white/90 hover:text-white"
+                }`}
+              >
+                STUDENTS CORNER
               </Link>
             </div>
 
@@ -234,6 +244,19 @@ export default function Nav() {
                   className="text-2xl font-bold tracking-[0.2em] text-[var(--color-midnight-900)] hover:text-[var(--color-midnight-600)] transition-colors font-sans"
                 >
                   BLOG
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 + NAV_LINKS.length * 0.1 }}
+              >
+                <Link
+                  href="/students-corner"
+                  onClick={closeMobileMenu}
+                  className="text-2xl font-bold tracking-[0.2em] text-[var(--color-midnight-900)] hover:text-[var(--color-midnight-600)] transition-colors font-sans"
+                >
+                  STUDENTS CORNER
                 </Link>
               </motion.div>
 

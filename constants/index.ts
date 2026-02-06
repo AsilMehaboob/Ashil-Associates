@@ -173,6 +173,7 @@ export const FOOTER_CONTENT = {
         { label: "Contact", href: "/#contact" },
         { label: "Career", href: "/career" },
         { label: "Blog", href: "/blog" },
+        { label: "Students Corner", href: "/students-corner" },
       ],
     },
   ],
@@ -434,6 +435,13 @@ export const SERVICES_CONTENT = {
       ],
     },
   ],
+};
+
+export const STUDENTS_CORNER_CONTENT = {
+  sectionHeader: "STUDENTS CORNER",
+  title: "Resources for Aspiring CAs",
+  description:
+    "Educational content, study tips, career guidance, and insights to help CA students succeed in their professional journey.",
 };
 
 export const BLOG_CONTENT = {

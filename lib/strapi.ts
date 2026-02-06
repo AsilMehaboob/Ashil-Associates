@@ -174,3 +174,91 @@ export function transformBlogPost(blog: StrapiBlog) {
     featuredImage: extractImageUrl(blog.featuredImage),
   };
 }
+
+// Types for Strapi Student Article (same structure as Blog)
+export interface StrapiStudentArticle {
+  id: number;
+  documentId: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  content: any; // Rich text blocks
+  category: string;
+  author: string;
+  readTime: string | null;
+  publishedDate: string | null;
+  featuredImage?: StrapiMedia | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+// Fetch all student articles from "Students Corner" collection
+export async function getStudentArticles(): Promise<StrapiStudentArticle[]> {
+  try {
+    const res = await fetch(
+      `${STRAPI_URL}/api/students-corners?populate=*&sort=publishedDate:desc`,
+      {
+        next: { revalidate: 60 },
+      }
+    );
+
+    if (!res.ok) {
+      console.error("Failed to fetch student articles:", res.status);
+      return [];
+    }
+
+    const response: StrapiResponse<StrapiStudentArticle[]> = await res.json();
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching student articles:", error);
+    return [];
+  }
+}
+
+// Fetch single student article by slug from "Students Corner" collection
+export async function getStudentArticleBySlug(slug: string): Promise<StrapiStudentArticle | null> {
+  try {
+    const res = await fetch(
+      `${STRAPI_URL}/api/students-corners?filters[slug][$eq]=${slug}&populate=*`,
+      {
+        next: { revalidate: 60 },
+      }
+    );
+
+    if (!res.ok) {
+      console.error("Failed to fetch student article:", res.status);
+      return null;
+    }
+
+    const response: StrapiResponse<StrapiStudentArticle[]> = await res.json();
+    return response.data[0] || null;
+  } catch (error) {
+    console.error("Error fetching student article:", error);
+    return null;
+  }
+}
+
+// Transform Strapi student article to match expected format
+export function transformStudentArticle(article: StrapiStudentArticle) {
+  return {
+    slug: article.slug,
+    title: article.title,
+    excerpt: article.excerpt,
+    category: article.category,
+    author: article.author,
+    date: article.publishedDate
+      ? new Date(article.publishedDate).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })
+      : new Date(article.createdAt).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        }),
+    readTime: article.readTime || "5 min read",
+    content: article.content,
+    featuredImage: extractImageUrl(article.featuredImage),
+  };
+}
