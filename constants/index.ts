@@ -162,7 +162,7 @@ export const BANNER_CONTENT = {
 
 export const FOOTER_CONTENT = {
   description:
-    "Trusted Chartered Accountants delivering comprehensive financial solutions across India and the GCC region.",
+    "Trusted Chartered Accountants delivering comprehensive financial solutions across India and globally.",
   columns: [
     {
       title: "Pages",
