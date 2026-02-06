@@ -172,6 +172,7 @@ export const FOOTER_CONTENT = {
         { label: "Services", href: "/#services" },
         { label: "Contact", href: "/#contact" },
         { label: "Career", href: "/career" },
+        { label: "Blog", href: "/blog" },
       ],
     },
   ],
@@ -430,6 +431,275 @@ export const SERVICES_CONTENT = {
         "Entity & Transaction Structuring",
         "Regulatory Compliance Support",
         "Global Tax Planning",
+      ],
+    },
+  ],
+};
+
+export const BLOG_CONTENT = {
+  sectionHeader: "INSIGHTS & UPDATES",
+  title: "Our Blog",
+  description:
+    "Stay informed with the latest insights on taxation, audit practices, regulatory updates, and financial advisory from our team of experts.",
+  posts: [
+    {
+      slug: "understanding-gst-compliance-2026",
+      title: "Understanding GST Compliance in 2026: Key Changes Every Business Should Know",
+      excerpt:
+        "The GST landscape continues to evolve with new compliance requirements and filing procedures. Here's what businesses need to prepare for in 2026.",
+      category: "Tax Compliance",
+      author: "CA. Ashil M.A., FCA",
+      date: "February 5, 2026",
+      readTime: "5 min read",
+      image: "/blog/gst-compliance.jpg",
+      content: [
+        {
+          type: "paragraph",
+          text: "The Goods and Services Tax (GST) framework in India has undergone significant changes since its introduction. As we move through 2026, businesses must stay updated with the latest compliance requirements to avoid penalties and ensure smooth operations.",
+        },
+        {
+          type: "heading",
+          text: "Key Changes in GST Compliance",
+        },
+        {
+          type: "paragraph",
+          text: "The government has introduced several amendments to streamline the GST filing process. These changes aim to reduce the compliance burden on small businesses while ensuring better tax collection efficiency.",
+        },
+        {
+          type: "list",
+          items: [
+            "Simplified return filing process for businesses with turnover below ₹5 crores",
+            "Enhanced e-invoicing requirements for B2B transactions",
+            "New provisions for input tax credit reconciliation",
+            "Updated HSN code requirements for better classification",
+          ],
+        },
+        {
+          type: "heading",
+          text: "Impact on Different Business Categories",
+        },
+        {
+          type: "paragraph",
+          text: "Different categories of taxpayers will experience varying impacts from these changes. Large enterprises may need to upgrade their ERP systems, while small businesses might benefit from the simplified procedures.",
+        },
+        {
+          type: "paragraph",
+          text: "At Ashil & Associates, we recommend businesses conduct a thorough review of their current GST compliance processes and identify areas that need updating. Our team can assist in ensuring your business remains fully compliant with the new regulations.",
+        },
+      ],
+    },
+    {
+      slug: "corporate-tax-planning-strategies",
+      title: "Effective Corporate Tax Planning Strategies for Growing Businesses",
+      excerpt:
+        "Strategic tax planning can significantly impact your business's bottom line. Learn about legitimate ways to optimize your corporate tax liability.",
+      category: "Tax Advisory",
+      author: "CA. Ceeja Udayanan, FCA",
+      date: "January 28, 2026",
+      readTime: "7 min read",
+      image: "/blog/corporate-tax.jpg",
+      content: [
+        {
+          type: "paragraph",
+          text: "Corporate tax planning is not just about minimizing taxes—it's about making strategic financial decisions that align with your business goals while ensuring full compliance with tax laws.",
+        },
+        {
+          type: "heading",
+          text: "Understanding Your Tax Obligations",
+        },
+        {
+          type: "paragraph",
+          text: "Before implementing any tax planning strategy, it's crucial to understand your current tax position. This includes analyzing your income sources, applicable deductions, and potential tax credits.",
+        },
+        {
+          type: "list",
+          items: [
+            "Review of current corporate structure and its tax implications",
+            "Analysis of available deductions under various sections",
+            "Evaluation of timing strategies for income and expenses",
+            "Assessment of investment options with tax benefits",
+          ],
+        },
+        {
+          type: "heading",
+          text: "Strategic Approaches to Tax Optimization",
+        },
+        {
+          type: "paragraph",
+          text: "Effective tax planning requires a proactive approach. Working with experienced tax advisors can help identify opportunities that align with both your business objectives and regulatory requirements.",
+        },
+      ],
+    },
+    {
+      slug: "importance-of-internal-audits",
+      title: "The Importance of Internal Audits in Risk Management",
+      excerpt:
+        "Internal audits play a crucial role in identifying operational inefficiencies and ensuring regulatory compliance. Discover how regular audits can protect your business.",
+      category: "Audit & Assurance",
+      author: "CA. Saandra Thomas, FCA",
+      date: "January 20, 2026",
+      readTime: "6 min read",
+      image: "/blog/internal-audit.jpg",
+      content: [
+        {
+          type: "paragraph",
+          text: "Internal audits are more than just a compliance requirement—they are a vital tool for business improvement. A well-executed internal audit can uncover inefficiencies, identify risks, and provide valuable insights for management decision-making.",
+        },
+        {
+          type: "heading",
+          text: "Key Benefits of Regular Internal Audits",
+        },
+        {
+          type: "paragraph",
+          text: "Organizations that conduct regular internal audits often outperform their peers in terms of operational efficiency and risk management.",
+        },
+        {
+          type: "list",
+          items: [
+            "Early detection of fraud and financial irregularities",
+            "Identification of process inefficiencies and improvement opportunities",
+            "Enhanced compliance with regulatory requirements",
+            "Better preparedness for statutory audits",
+            "Improved internal controls and governance",
+          ],
+        },
+        {
+          type: "heading",
+          text: "Building an Effective Internal Audit Program",
+        },
+        {
+          type: "paragraph",
+          text: "An effective internal audit program requires proper planning, skilled resources, and management commitment. Our team at Ashil & Associates can help design and implement audit programs tailored to your organization's needs.",
+        },
+      ],
+    },
+    {
+      slug: "vat-compliance-gcc-businesses",
+      title: "VAT Compliance for GCC Businesses: A Comprehensive Guide",
+      excerpt:
+        "Navigate the VAT requirements across GCC countries with confidence. Our comprehensive guide covers registration, filing, and common compliance pitfalls.",
+      category: "GCC Advisory",
+      author: "CA. Ashil M.A., FCA",
+      date: "January 12, 2026",
+      readTime: "8 min read",
+      image: "/blog/vat-gcc.jpg",
+      content: [
+        {
+          type: "paragraph",
+          text: "Value Added Tax (VAT) has become a significant consideration for businesses operating in the GCC region. Understanding the nuances of VAT compliance across different GCC countries is essential for maintaining good standing with tax authorities.",
+        },
+        {
+          type: "heading",
+          text: "VAT Framework Across GCC Countries",
+        },
+        {
+          type: "paragraph",
+          text: "While the GCC countries have implemented VAT under a unified framework agreement, there are variations in implementation and compliance requirements across different jurisdictions.",
+        },
+        {
+          type: "list",
+          items: [
+            "UAE VAT: 5% standard rate with specific exemptions",
+            "Saudi Arabia VAT: 15% standard rate since July 2020",
+            "Bahrain VAT: 10% standard rate with recent amendments",
+            "Oman VAT: 5% standard rate implemented in April 2021",
+            "Qatar & Kuwait: Implementation pending",
+          ],
+        },
+        {
+          type: "heading",
+          text: "Common Compliance Challenges",
+        },
+        {
+          type: "paragraph",
+          text: "Businesses often face challenges in maintaining compliance due to the complexity of multi-jurisdictional operations and varying requirements. Professional advisory support can help navigate these complexities effectively.",
+        },
+      ],
+    },
+    {
+      slug: "virtual-cfo-services-startups",
+      title: "Why Startups Should Consider Virtual CFO Services",
+      excerpt:
+        "Access senior-level financial expertise without the full-time cost. Learn how Virtual CFO services can accelerate your startup's growth and investor readiness.",
+      category: "Advisory Services",
+      author: "Binsa N.H., CMA Finalist",
+      date: "January 5, 2026",
+      readTime: "5 min read",
+      image: "/blog/virtual-cfo.jpg",
+      content: [
+        {
+          type: "paragraph",
+          text: "Startups often face a common dilemma: they need strategic financial guidance but cannot justify the cost of a full-time CFO. Virtual CFO services bridge this gap by providing access to experienced financial professionals on a flexible basis.",
+        },
+        {
+          type: "heading",
+          text: "What Virtual CFO Services Include",
+        },
+        {
+          type: "paragraph",
+          text: "A Virtual CFO brings the same expertise and strategic thinking as a traditional CFO, but with the flexibility to scale services based on your current needs.",
+        },
+        {
+          type: "list",
+          items: [
+            "Financial planning and forecasting",
+            "Cash flow management and optimization",
+            "Investor reporting and fundraising support",
+            "Budgeting and variance analysis",
+            "Strategic financial decision support",
+            "Board presentation preparation",
+          ],
+        },
+        {
+          type: "heading",
+          text: "When to Consider Virtual CFO Services",
+        },
+        {
+          type: "paragraph",
+          text: "The right time to engage a Virtual CFO depends on your business stage and specific needs. Most startups benefit from these services when they're preparing for fundraising, experiencing rapid growth, or need to professionalize their financial operations.",
+        },
+      ],
+    },
+    {
+      slug: "transfer-pricing-documentation",
+      title: "Transfer Pricing Documentation: What Multinational Companies Need to Know",
+      excerpt:
+        "Proper transfer pricing documentation is essential for multinational operations. Understand the requirements and best practices for compliance.",
+      category: "International Taxation",
+      author: "CA. Vidhya Muraly, ACA",
+      date: "December 28, 2025",
+      readTime: "6 min read",
+      image: "/blog/transfer-pricing.jpg",
+      content: [
+        {
+          type: "paragraph",
+          text: "Transfer pricing has become one of the most scrutinized areas of international taxation. Tax authorities worldwide are increasingly focused on ensuring that intercompany transactions are conducted at arm's length prices.",
+        },
+        {
+          type: "heading",
+          text: "Documentation Requirements",
+        },
+        {
+          type: "paragraph",
+          text: "Maintaining comprehensive transfer pricing documentation is not just a compliance requirement—it's your first line of defense in case of a tax audit.",
+        },
+        {
+          type: "list",
+          items: [
+            "Master File: Group-level information about global operations",
+            "Local File: Detailed analysis of local entity transactions",
+            "Country-by-Country Report: Required for large multinationals",
+            "Benchmarking studies and comparability analysis",
+          ],
+        },
+        {
+          type: "heading",
+          text: "Best Practices for Compliance",
+        },
+        {
+          type: "paragraph",
+          text: "Proactive transfer pricing planning and contemporaneous documentation can significantly reduce audit risks and potential adjustments. Our team specializes in helping multinational companies establish robust transfer pricing frameworks.",
+        },
       ],
     },
   ],
