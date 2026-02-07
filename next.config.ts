@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
+const strapiHost = process.env.STRAPI_BASE_URL
+  ? new URL(process.env.STRAPI_BASE_URL).hostname
+  : undefined;
+
 const nextConfig: NextConfig = {
   images: {
-    // Allow localhost images during development (resolves private IP issue)
     dangerouslyAllowSVG: true,
     remotePatterns: [
       {
@@ -17,15 +20,19 @@ const nextConfig: NextConfig = {
         port: "1337",
         pathname: "/uploads/**",
       },
-      // Add your production Strapi domain here when deploying
-      // {
-      //   protocol: "https",
-      //   hostname: "your-strapi-domain.com",
-      //   pathname: "/uploads/**",
-      // },
+      // ✅ PRODUCTION STRAPI (FROM ENV)
+      ...(strapiHost
+        ? [
+            {
+              protocol: "https",
+              hostname: strapiHost,
+              port: "", // Explicitly set port to empty string for production
+              pathname: "/uploads/**",
+            } as const,
+          ]
+        : []),
     ],
   },
-  // Allow fetching images from localhost during development
   experimental: {
     serverActions: {
       allowedOrigins: ["localhost:1337", "127.0.0.1:1337"],
