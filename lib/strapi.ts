@@ -238,6 +238,42 @@ export async function getStudentArticleBySlug(slug: string): Promise<StrapiStude
   }
 }
 
+// Types for Strapi Career Position
+export interface StrapiCareerPosition {
+  id: number;
+  documentId: string;
+  title: string;
+  description?: string | null;
+  department?: string | null;
+  location?: string | null;
+  type?: string | null; // Full-time, Part-time, Contract, etc.
+  createdAt: string;
+  updatedAt: string;
+}
+
+// Fetch all career positions
+export async function getCareerPositions(): Promise<StrapiCareerPosition[]> {
+  try {
+    const res = await fetch(
+      `${STRAPI_URL}/api/career-positions?populate=*&sort=createdAt:desc`,
+      {
+        next: { revalidate: 60 },
+      }
+    );
+
+    if (!res.ok) {
+      console.error("Failed to fetch career positions:", res.status);
+      return [];
+    }
+
+    const response: StrapiResponse<StrapiCareerPosition[]> = await res.json();
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching career positions:", error);
+    return [];
+  }
+}
+
 // Transform Strapi student article to match expected format
 export function transformStudentArticle(article: StrapiStudentArticle) {
   return {
