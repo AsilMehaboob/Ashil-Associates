@@ -51,7 +51,7 @@ export default function BlogClient({
         post.title.toLowerCase().includes(query) ||
         post.excerpt.toLowerCase().includes(query) ||
         post.category.toLowerCase().includes(query) ||
-        post.author.toLowerCase().includes(query)
+        post.author.toLowerCase().includes(query),
     );
   }, [searchQuery, posts]);
 
@@ -183,7 +183,7 @@ export default function BlogClient({
                         {featuredPost.readTime}
                       </span>
                     </div>
-                    <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-black group-hover:gap-3 transition-all">
+                    <span className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-black group-hover:gap-3 transition-all text-gray-900">
                       READ ARTICLE
                       <ArrowRight className="w-4 h-4" />
                     </span>
