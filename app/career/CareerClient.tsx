@@ -6,7 +6,6 @@ interface CareerPosition {
   id: number;
   title: string;
   description?: string | null;
-  department?: string | null;
   location?: string | null;
   type?: string | null;
 }
@@ -162,11 +161,6 @@ export default function CareerClient({ positions }: CareerClientProps) {
                             )}
                           </div>
                         </div>
-                        {position.department && (
-                          <p className="text-sm text-gray-400 font-sans mt-2">
-                            {position.department}
-                          </p>
-                        )}
                         {position.description && (
                           <p className="text-sm text-gray-500 font-sans mt-3 leading-relaxed">
                             {position.description}
