@@ -10,7 +10,7 @@ import { NAV_LINKS } from "@/constants";
 
 const handleSmoothScroll = (
   e: React.MouseEvent<HTMLAnchorElement>,
-  targetId: string
+  targetId: string,
 ) => {
   e.preventDefault();
   const element = document.getElementById(targetId);
@@ -25,8 +25,16 @@ export default function Nav() {
   const pathname = usePathname();
 
   // Pages that should have visible navbar from the start
-  const pagesWithVisibleNavbar = ["/privacy-policy", "/terms-of-service", "/career", "/blog", "/students-corner"];
-  const shouldStartVisible = pagesWithVisibleNavbar.includes(pathname || "") || pathname?.startsWith("/blog/");
+  const pagesWithVisibleNavbar = [
+    "/privacy-policy",
+    "/terms-of-service",
+    "/career",
+    "/blog",
+    "/students-corner",
+  ];
+  const shouldStartVisible =
+    pagesWithVisibleNavbar.includes(pathname || "") ||
+    pathname?.startsWith("/blog/");
   const isNavActive = isScrolled || shouldStartVisible || isMobileMenuOpen;
   const isHomePage = pathname === "/";
 
@@ -88,8 +96,8 @@ export default function Nav() {
             />
           </Link>
 
-          <div className="hidden lg:flex items-center gap-12">
-            <div className="flex items-center gap-10">
+          <div className="hidden xl:flex items-center gap-10 whitespace-nowrap">
+            <div className="flex items-center gap-8">
               {isHomePage &&
                 NAV_LINKS.map((link) => (
                   <a
@@ -129,13 +137,13 @@ export default function Nav() {
               </Link>
               <Link
                 href="/students-corner"
-                className={`text-xs font-bold tracking-[0.2em] transition-colors font-sans cursor-pointer hover:text-[var(--color-midnight-900)] ${
+                className={`text-xs font-bold tracking-[0.2em] transition-colors font-sans cursor-pointer hover:text-[var(--color-midnight-900)] text-center ${
                   isNavActive
                     ? "text-[var(--color-midnight-600)]"
                     : "text-white/90 hover:text-white"
                 }`}
               >
-                STUDENTS CORNER
+                STUDENTS <br /> CORNER
               </Link>
             </div>
 
@@ -169,7 +177,7 @@ export default function Nav() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 z-50 focus:outline-none"
+            className="xl:hidden p-2 z-50 focus:outline-none"
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
           >
@@ -200,7 +208,7 @@ export default function Nav() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed inset-0 bg-white z-40 lg:hidden pt-28 px-6 flex flex-col"
+            className="fixed inset-0 bg-white z-40 xl:hidden pt-28 px-6 flex flex-col"
           >
             <div className="flex flex-col items-center justify-center space-y-8 h-full pb-28">
               {isHomePage &&
