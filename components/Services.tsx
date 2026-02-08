@@ -1,12 +1,37 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { SERVICES_CONTENT } from "@/constants";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";
 
 export default function Services() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(0);
+  const [isScrolling, setIsScrolling] = useState(false);
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolling(true);
+
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+
+      scrollTimeoutRef.current = setTimeout(() => {
+        setIsScrolling(false);
+      }, 150);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <section
@@ -40,7 +65,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              onMouseEnter={() => setOpenAccordion(index)}
+              onMouseEnter={() => !isScrolling && setOpenAccordion(index)}
             >
               {/* Accordion Header */}
               <button
