@@ -23,14 +23,12 @@ interface StudentArticle {
 
 interface StudentsCornerClientProps {
   posts: StudentArticle[];
-  sectionHeader: string;
   title: string;
   description: string;
 }
 
 export default function StudentsCornerClient({
   posts,
-  sectionHeader,
   title,
   description,
 }: StudentsCornerClientProps) {
@@ -71,9 +69,6 @@ export default function StudentsCornerClient({
             transition={fadeIn.transition}
             className="mb-16 border-b border-gray-100 pb-16 max-w-4xl"
           >
-            <p className="text-xs tracking-[0.2em] text-gray-500 font-sans mb-4 uppercase">
-              {sectionHeader}
-            </p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif text-black leading-tight mb-6">
               {title}
             </h1>

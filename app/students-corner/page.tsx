@@ -13,7 +13,6 @@ export default async function StudentsCornerPage() {
   return (
     <StudentsCornerClient
       posts={posts}
-      sectionHeader={STUDENTS_CORNER_CONTENT.sectionHeader}
       title={STUDENTS_CORNER_CONTENT.title}
       description={STUDENTS_CORNER_CONTENT.description}
     />

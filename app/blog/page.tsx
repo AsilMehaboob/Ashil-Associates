@@ -13,7 +13,6 @@ export default async function BlogPage() {
   return (
     <BlogClient
       posts={posts}
-      sectionHeader={BLOG_CONTENT.sectionHeader}
       title={BLOG_CONTENT.title}
       description={BLOG_CONTENT.description}
     />
