@@ -83,7 +83,13 @@ export default function Nav() {
           <Link
             href="/"
             className="relative w-44 md:w-52 lg:w-56 h-14 md:h-16"
-            onClick={closeMobileMenu}
+            onClick={(e) => {
+              closeMobileMenu();
+              if (pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
           >
             <Image
               src="/logo.svg"
