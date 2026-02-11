@@ -1,4 +1,4 @@
-import { getStudentArticleBySlug, getStudentArticles, transformStudentArticle } from "@/lib/strapi";
+import { getStudentArticleBySlug, getStudentArticles, generateSlug, transformStudentArticle } from "@/lib/strapi";
 import { notFound } from "next/navigation";
 import StudentArticleClient from "./StudentArticleClient";
 import { Metadata } from "next";
@@ -13,7 +13,7 @@ interface Props {
 export async function generateStaticParams() {
   const articles = await getStudentArticles();
   return articles.map((article) => ({
-    slug: article.slug,
+    slug: generateSlug(article.title),
   }));
 }
 
@@ -43,7 +43,7 @@ export default async function StudentArticlePage({ params }: Props) {
   // Get all articles for related posts
   const allArticles = await getStudentArticles();
   const relatedArticles = allArticles
-    .filter((a) => a.slug !== slug)
+    .filter((a) => generateSlug(a.title) !== slug)
     .slice(0, 3);
 
   // Transform to match expected format

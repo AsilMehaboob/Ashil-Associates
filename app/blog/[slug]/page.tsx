@@ -1,4 +1,4 @@
-import { getBlogBySlug, getBlogs, transformBlogPost } from "@/lib/strapi";
+import { getBlogBySlug, getBlogs, generateSlug, transformBlogPost } from "@/lib/strapi";
 import { notFound } from "next/navigation";
 import BlogPostClient from "./BlogPostClient";
 import { Metadata } from "next";
@@ -13,7 +13,7 @@ interface Props {
 export async function generateStaticParams() {
   const blogs = await getBlogs();
   return blogs.map((blog) => ({
-    slug: blog.slug,
+    slug: generateSlug(blog.title),
   }));
 }
 
@@ -43,7 +43,7 @@ export default async function BlogPostPage({ params }: Props) {
   // Get all blogs for related posts
   const allBlogs = await getBlogs();
   const relatedBlogs = allBlogs
-    .filter((b) => b.slug !== slug)
+    .filter((b) => generateSlug(b.title) !== slug)
     .slice(0, 3);
 
   // Transform to match expected format

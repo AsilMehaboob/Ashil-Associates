@@ -36,6 +36,17 @@ interface StrapiMedia {
   };
 }
 
+// Generate a URL-friendly slug from a title
+export function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "") // Remove special characters
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/-+/g, "-") // Replace multiple hyphens with single
+    .replace(/^-+|-+$/g, ""); // Remove leading/trailing hyphens
+}
+
 // Types for Strapi Blog
 export interface StrapiBlog {
   id: number;
@@ -88,23 +99,11 @@ export async function getBlogs(): Promise<StrapiBlog[]> {
   }
 }
 
-// Fetch single blog post by slug
+// Fetch single blog post by slug (generated from title)
 export async function getBlogBySlug(slug: string): Promise<StrapiBlog | null> {
   try {
-    const res = await fetch(
-      `${STRAPI_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=*`,
-      {
-        next: { revalidate: 60 },
-      }
-    );
-
-    if (!res.ok) {
-      console.error("Failed to fetch blog:", res.status);
-      return null;
-    }
-
-    const response: StrapiResponse<StrapiBlog[]> = await res.json();
-    return response.data[0] || null;
+    const blogs = await getBlogs();
+    return blogs.find((blog) => generateSlug(blog.title) === slug) || null;
   } catch (error) {
     console.error("Error fetching blog:", error);
     return null;
@@ -153,7 +152,7 @@ export function transformBlogPost(blog: StrapiBlog) {
   }
 
   return {
-    slug: blog.slug,
+    slug: generateSlug(blog.title),
     title: blog.title,
     excerpt: blog.excerpt,
     category: blog.category,
@@ -215,23 +214,11 @@ export async function getStudentArticles(): Promise<StrapiStudentArticle[]> {
   }
 }
 
-// Fetch single student article by slug from "Students Corner" collection
+// Fetch single student article by slug (generated from title) from "Students Corner" collection
 export async function getStudentArticleBySlug(slug: string): Promise<StrapiStudentArticle | null> {
   try {
-    const res = await fetch(
-      `${STRAPI_URL}/api/students-corners?filters[slug][$eq]=${slug}&populate=*`,
-      {
-        next: { revalidate: 60 },
-      }
-    );
-
-    if (!res.ok) {
-      console.error("Failed to fetch student article:", res.status);
-      return null;
-    }
-
-    const response: StrapiResponse<StrapiStudentArticle[]> = await res.json();
-    return response.data[0] || null;
+    const articles = await getStudentArticles();
+    return articles.find((article) => generateSlug(article.title) === slug) || null;
   } catch (error) {
     console.error("Error fetching student article:", error);
     return null;
@@ -277,7 +264,7 @@ export async function getCareerPositions(): Promise<StrapiCareerPosition[]> {
 // Transform Strapi student article to match expected format
 export function transformStudentArticle(article: StrapiStudentArticle) {
   return {
-    slug: article.slug,
+    slug: generateSlug(article.title),
     title: article.title,
     excerpt: article.excerpt,
     category: article.category,
