@@ -249,23 +249,12 @@ export default function BlogPostClient({
             )}
           </motion.div>
 
-          {/* Author Box */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 bg-[#F5F5F0] p-8 rounded-sm"
-          >
-            <p className="text-xs tracking-[0.2em] text-gray-500 font-sans mb-3 uppercase">
-              Written by
-            </p>
-            <h3 className="text-xl font-serif text-black mb-2">{post.author}</h3>
-            <p className="text-gray-600 font-sans text-sm">
-              Expert in audit, taxation, and financial advisory services at
-              Ashil & Associates.
-            </p>
-          </motion.div>
+          {/* End of Article Marker */}
+          <div className="mt-16 flex items-center justify-center gap-3">
+            <div className="h-px w-16 bg-gray-300" />
+            <span className="text-gray-400 text-xs tracking-[0.3em] font-serif">&#9830; &#9830; &#9830;</span>
+            <div className="h-px w-16 bg-gray-300" />
+          </div>
 
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
