@@ -59,7 +59,7 @@ export default function BlogPostClient({
           >
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-gray-500 hover:text-black hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-gray-500 hover:text-gray-700 transition-all bg-black/4 px-3 py-2 rounded-base justify-center items-center"
             >
               <ArrowLeft className="w-4 h-4" />
               BACK TO BLOG
@@ -166,11 +166,7 @@ export default function BlogPostClient({
                         </ol>
                       );
                     }
-                    return (
-                      <ul className="space-y-2 mb-6">
-                        {children}
-                      </ul>
-                    );
+                    return <ul className="space-y-2 mb-6">{children}</ul>;
                   },
                   "list-item": ({ children }) => (
                     <li className="text-gray-600 font-sans text-base flex items-start gap-3">
@@ -216,7 +212,11 @@ export default function BlogPostClient({
                       href={url}
                       className="text-black underline hover:no-underline"
                       target={url.startsWith("http") ? "_blank" : undefined}
-                      rel={url.startsWith("http") ? "noopener noreferrer" : undefined}
+                      rel={
+                        url.startsWith("http")
+                          ? "noopener noreferrer"
+                          : undefined
+                      }
                     >
                       {children}
                     </a>
@@ -283,7 +283,9 @@ export default function BlogPostClient({
                             alt={relatedPost.title}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
-                            unoptimized={isLocalImage(relatedPost.featuredImage)}
+                            unoptimized={isLocalImage(
+                              relatedPost.featuredImage,
+                            )}
                           />
                         ) : (
                           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-midnight-700)] to-[var(--color-midnight-900)] flex items-center justify-center group-hover:from-[var(--color-midnight-600)] group-hover:to-[var(--color-midnight-800)] transition-all duration-300">
