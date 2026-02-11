@@ -200,7 +200,7 @@ export const TEAM_CONTENT = {
       name: "CA. Ceeja Udayanan, FCA",
       role: "Partner",
       description:
-        "Specialist in financial reporting, auditing, and end-to-end accounting operations across diverse industries.",
+        "Specialist in financial reporting, auditing, and end-to-end accounting operations across diverse industries, with a certification in Forensic Accounting and Fraud Detection from the Digital Accounting and Assurance Board (DAAB).",
       // socials: { linkedin: "#", mail: "mailto:ceeja@example.com" },
       image: "/ceeja.jpg",
     },
