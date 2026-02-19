@@ -121,19 +121,51 @@ export default function Services() {
                           </p>
                         </div>
                         <div className="w-full">
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12">
-                            {service.details.map((detail, idx) => (
-                              <div
-                                key={idx}
-                                className="flex items-start gap-3 text-gray-700 font-sans"
-                              >
-                                <div className="w-1.5 h-1.5 bg-black rounded-full shrink-0 mt-2"></div>
-                                <span className="text-sm tracking-wide text-gray-600 leading-relaxed">
-                                  {detail}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
+                          {(service as any).subSections ? (
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+                              {(service as any).subSections.map(
+                                (section: any, idx: number) => (
+                                  <div
+                                    key={idx}
+                                    className="flex flex-col gap-4"
+                                  >
+                                    <h4 className="font-serif text-lg text-black">
+                                      {section.title}
+                                    </h4>
+                                    <ul className="space-y-3">
+                                      {section.items.map(
+                                        (item: string, i: number) => (
+                                          <li
+                                            key={i}
+                                            className="flex items-start gap-3 text-gray-700 font-sans"
+                                          >
+                                            <div className="w-1.5 h-1.5 bg-black rounded-full shrink-0 mt-2"></div>
+                                            <span className="text-sm tracking-wide text-gray-600 leading-relaxed">
+                                              {item}
+                                            </span>
+                                          </li>
+                                        )
+                                      )}
+                                    </ul>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          ) : (
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12">
+                              {service.details.map((detail, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-start gap-3 text-gray-700 font-sans"
+                                >
+                                  <div className="w-1.5 h-1.5 bg-black rounded-full shrink-0 mt-2"></div>
+                                  <span className="text-sm tracking-wide text-gray-600 leading-relaxed">
+                                    {detail}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>

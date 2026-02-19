@@ -445,14 +445,78 @@ export const SERVICES_CONTENT = {
       title: "Corporate Affairs Services",
       description:
         "At Ashil & Associates, we provide end-to-end Corporate Affairs advisory and compliance solutions to ensure that businesses operate within the framework of the Companies Act, 2013, Ministry of Corporate Affairs (MCA) regulations, and allied corporate laws. Our services are designed to support startups, SMEs, family-owned enterprises, and growing corporates in achieving regulatory compliance, corporate governance excellence, and strategic structuring efficiency.",
-      details: [
-        "Company Incorporation & Structuring: Incorporation of Private/Public Ltd, LLP & Section 8 Companies, MOA/AOA drafting, SPICe+ filings, & Capital structuring.",
-        "ROC & MCA Compliance: Annual filings (AOC-4, MGT-7), Statutory registers, Board/Shareholder meeting compliances, DIR-3 KYC/DPT-3/MSME-1 filings & Strike-offs.",
-        "Corporate Governance Advisory: Drafting Resolutions, Secretarial compliance framework, Related Party Transactions (Sec 188), Loans & Investments (Sec 186), & Dividend compliance.",
-        "Capital & Share Transactions: Issue of shares (Rights, Bonus, Private Placement), Valuation (Rule 11UA & FEMA), Share transfers, Buy-back advisory, & ESOP structuring.",
-        "FEMA & RBI Corporate Advisory: FDI reporting (FC-GPR, FC-TRS), ECB advisory, ODI compliance, Liaison/Branch office compliance, & Cross-border transaction structuring.",
-        "Corporate Restructuring: Shareholding & control changes, Merger/Demerger structuring, LLP-Company conversion, Due diligence for M&A, & Exit structuring.",
-        "Compliance Audits & Risk Review: Corporate compliance health checks, Secretarial gap analysis, Rectification of non-compliances, Compounding applications, & Regulatory representation.",
+      details: [],
+      subSections: [
+        {
+          title: "1. Company Incorporation & Structuring",
+          items: [
+            "Incorporation of Private Limited, Public Limited, LLP and Section 8 Companies",
+            "Drafting of MOA, AOA and LLP Agreements",
+            "SPICe+ filings and MCA registration process",
+            "Corporate structuring and restructuring advisory",
+            "Shareholding pattern optimization and capital structuring",
+          ],
+        },
+        {
+          title: "2. ROC & MCA Compliance",
+          items: [
+            "Annual filing (AOC-4, MGT-7, MGT-7A)",
+            "Maintenance of statutory registers",
+            "Board and Shareholder meeting compliances",
+            "DIR-3 KYC, DPT-3, MSME-1 and other event-based filings",
+            "Strike-off, dormant company compliance",
+          ],
+        },
+        {
+          title: "3. Corporate Governance Advisory",
+          items: [
+            "Drafting of Board Resolutions and Shareholder Resolutions",
+            "Secretarial compliance framework setup",
+            "Advisory on related party transactions (Section 188)",
+            "Loans, guarantees & investments compliance (Section 186)",
+            "Dividend declaration and distribution compliance",
+          ],
+        },
+        {
+          title: "4. Capital & Share Transactions",
+          items: [
+            "Issue of shares (Rights, Bonus, Private Placement)",
+            "Valuation support under Rule 11UA & FEMA",
+            "Share transfer documentation",
+            "Buy-back compliance advisory",
+            "ESOP structuring & implementation",
+          ],
+        },
+        {
+          title: "5. FEMA & RBI Corporate Advisory",
+          items: [
+            "FDI reporting (FC-GPR, FC-TRS)",
+            "External Commercial Borrowings (ECB) advisory",
+            "Overseas Direct Investment (ODI) compliance",
+            "Liaison & branch office compliance under FEMA",
+            "(Aligned with RBI and FEMA regulations applicable to cross-border transactions.)",
+          ],
+        },
+        {
+          title: "6. Corporate Restructuring & Strategic Transactions",
+          items: [
+            "Change in shareholding & control advisory",
+            "Merger & demerger preliminary structuring",
+            "Conversion of LLP to Company and vice versa",
+            "Due diligence for investment or acquisition",
+            "Exit structuring for promoters",
+          ],
+        },
+        {
+          title: "7. Compliance Audits & Risk Review",
+          items: [
+            "Corporate compliance health check",
+            "Secretarial compliance gap analysis",
+            "Rectification of past non-compliances",
+            "Compounding applications before ROC",
+            "Representation support before regulatory authorities",
+          ],
+        },
       ],
     },
   ],
