@@ -228,6 +228,13 @@ export const TEAM_CONTENT = {
       // socials: { linkedin: "#", mail: "mailto:binsa@example.com" },
       image: "/binsa.jpg",
     },
+    {
+      name: "CS. Manju Sebastian, BBA, ACS",
+      role: "Company secretary / Senior Associate",
+      description:
+        "A highly skilled company secretary with over 10 years of experience in corporate governance, regulatory compliance, and company law. Expertise in managing board meetings, maintaining statutory records, and ensuring the company adheres to legal obligations. Adept at advising senior management and directors on governance matters and implementing best practices to ensure regulatory compliance. Skilled in preparing and filing regulatory documents, managing shareholder relations, and coordinating with external auditors and regulatory bodies. Proficient in financial analysis, understands and interprets company financial data to support sound decision-making. Integrity and discretion are at the core of work, ensuring confidentiality in all sensitive matters.",
+      image: "",
+    },
   ],
 };
 
@@ -432,6 +439,20 @@ export const SERVICES_CONTENT = {
         "Entity & Transaction Structuring",
         "Regulatory Compliance Support",
         "Global Tax Planning",
+      ],
+    },
+    {
+      title: "Corporate Affairs Services",
+      description:
+        "At Ashil & Associates, we provide end-to-end Corporate Affairs advisory and compliance solutions to ensure that businesses operate within the framework of the Companies Act, 2013, Ministry of Corporate Affairs (MCA) regulations, and allied corporate laws. Our services are designed to support startups, SMEs, family-owned enterprises, and growing corporates in achieving regulatory compliance, corporate governance excellence, and strategic structuring efficiency.",
+      details: [
+        "Company Incorporation & Structuring: Incorporation of Private/Public Ltd, LLP & Section 8 Companies, MOA/AOA drafting, SPICe+ filings, & Capital structuring.",
+        "ROC & MCA Compliance: Annual filings (AOC-4, MGT-7), Statutory registers, Board/Shareholder meeting compliances, DIR-3 KYC/DPT-3/MSME-1 filings & Strike-offs.",
+        "Corporate Governance Advisory: Drafting Resolutions, Secretarial compliance framework, Related Party Transactions (Sec 188), Loans & Investments (Sec 186), & Dividend compliance.",
+        "Capital & Share Transactions: Issue of shares (Rights, Bonus, Private Placement), Valuation (Rule 11UA & FEMA), Share transfers, Buy-back advisory, & ESOP structuring.",
+        "FEMA & RBI Corporate Advisory: FDI reporting (FC-GPR, FC-TRS), ECB advisory, ODI compliance, Liaison/Branch office compliance, & Cross-border transaction structuring.",
+        "Corporate Restructuring: Shareholding & control changes, Merger/Demerger structuring, LLP-Company conversion, Due diligence for M&A, & Exit structuring.",
+        "Compliance Audits & Risk Review: Corporate compliance health checks, Secretarial gap analysis, Rectification of non-compliances, Compounding applications, & Regulatory representation.",
       ],
     },
   ],

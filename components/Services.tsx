@@ -114,21 +114,21 @@ export default function Services() {
                     className="overflow-hidden"
                   >
                     <div className="pb-12 pl-0 md:pl-[calc(2rem+32px)] lg:pl-[calc(4rem+50px)] pr-4 md:pr-12">
-                      <div className="flex flex-col md:flex-row gap-12 md:gap-24">
-                        <div className="flex-1">
-                          <p className="text-gray-600 text-base leading-relaxed font-sans max-w-xl">
+                      <div className="flex flex-col gap-10">
+                        <div className="w-full">
+                          <p className="text-gray-600 text-base leading-relaxed font-sans max-w-3xl">
                             {service.description}
                           </p>
                         </div>
-                        <div className="flex-1">
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
+                        <div className="w-full">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12">
                             {service.details.map((detail, idx) => (
                               <div
                                 key={idx}
-                                className="flex items-center gap-3 text-gray-700 font-sans"
+                                className="flex items-start gap-3 text-gray-700 font-sans"
                               >
-                                <div className="w-1.5 h-1.5 bg-black rounded-full shrink-0"></div>
-                                <span className="text-sm tracking-wide text-gray-600">
+                                <div className="w-1.5 h-1.5 bg-black rounded-full shrink-0 mt-2"></div>
+                                <span className="text-sm tracking-wide text-gray-600 leading-relaxed">
                                   {detail}
                                 </span>
                               </div>

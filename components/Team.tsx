@@ -47,14 +47,16 @@ export default function Team() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="relative w-full aspect-[4/5] bg-[var(--color-midnight-800)] mb-6 overflow-hidden">
-                <Image
-                  src={(member as any).image}
-                  alt={member.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
+              {member.image && (
+                <div className="relative w-full aspect-[4/5] bg-[var(--color-midnight-800)] mb-6 overflow-hidden">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              )}
 
               <h4 className="font-serif text-xl text-white mb-2 font-medium">
                 {member.name}
